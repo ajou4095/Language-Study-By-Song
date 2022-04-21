@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.ray.template.presentation.ui.main.MainViewModel" />
+            type="com.ray.language.presentation.ui.main.MainViewModel" />
 
     </data>
 
