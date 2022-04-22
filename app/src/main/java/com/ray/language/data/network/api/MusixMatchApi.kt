@@ -1,6 +1,7 @@
 package com.ray.language.data.network.api
 
 import com.ray.language.data.model.musixmatch.LyricsRes
+import com.skydoves.sandwich.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -10,5 +11,5 @@ interface MusixMatchApi {
         @Query("apikey") apiKey: String,
         @Query("q_track") title: String,
         @Query("q_artist") artist: String
-    ): LyricsRes
+    ): ApiResponse<LyricsRes>
 }

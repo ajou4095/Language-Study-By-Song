@@ -1,7 +1,7 @@
 package com.ray.language.di
 
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.ray.language.BuildConfig
+import com.skydoves.sandwich.adapters.ApiResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -27,7 +27,7 @@ class RetrofitModule {
     ): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
             .baseUrl(MUSIC_MATCH_BASE_URL).apply {
                 if (BuildConfig.DEBUG) client(client)
             }.build()
