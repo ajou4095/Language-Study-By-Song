@@ -6,6 +6,9 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     compileSdk rootProject.compileSdkVersion
 
@@ -15,6 +18,8 @@ android {
         targetSdk rootProject.targetSdkVersion
         versionCode rootProject.versionCode
         versionName rootProject.versionName
+
+        buildConfigField "String", "MUSIX_MATCH_API_KEY", properties['musixmatch_api_key']
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
