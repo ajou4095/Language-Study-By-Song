@@ -15,10 +15,6 @@ class MainViewModel @Inject constructor() : ViewModel() {
     val event: LiveData<Event<MainViewEvent>>
         get() = _event
 
-    init {
-        _event.value = Event(MainViewEvent.Study)
-    }
-
     fun onTabClick(position: Int) {
         when (position) {
             MainTabContract.TAB_STUDY -> {

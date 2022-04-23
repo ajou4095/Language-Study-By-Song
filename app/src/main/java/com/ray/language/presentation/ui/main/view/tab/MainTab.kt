@@ -20,15 +20,18 @@ class MainTab @JvmOverloads constructor(
     private val binding = ViewMainTabBinding.inflate(LayoutInflater.from(context), this, true)
 
     var onItemClick: OnItemClickListener? = null
+        set(value) {
+            field = value
+            value?.onClick(MainTabContract.TAB_STUDY)
+            animateAllIcons(MainTabContract.TAB_STUDY)
+        }
 
     init {
         minHeight = 52.dp.toInt()
         maxHeight = 52.dp.toInt()
 
         with(binding) {
-            study.imageAlpha = MainTabContract.SELECTED_ALPHA
-            study.scaleX = 1.2f
-            study.scaleY = 1.2f
+            study.imageAlpha = MainTabContract.DESELECTED_ALPHA
             backgroundStudy.setOnClickListener {
                 onItemClick?.onClick(MainTabContract.TAB_STUDY)
                 animateAllIcons(MainTabContract.TAB_STUDY)
