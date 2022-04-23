@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <integer name="animation_duration">400</integer>
+
     <dimen name="spacing_xxs">5dp</dimen>
     <dimen name="spacing_xs">10dp</dimen>
     <dimen name="spacing_s">15dp</dimen>
@@ -19,4 +21,10 @@
     <dimen name="typography_body1">16dp</dimen>
     <dimen name="typography_body2">14dp</dimen>
     <dimen name="typography_button">14dp</dimen>
+
+    <dimen name="divider_stroke_s">1dp</dimen>
+    <dimen name="divider_stroke_m">3dp</dimen>
+    <dimen name="divider_stroke_l">5dp</dimen>
+
+    <dimen name="size_icon">25dp</dimen>
 </resources>

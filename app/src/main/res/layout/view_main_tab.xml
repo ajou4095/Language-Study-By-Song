@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <merge
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@color/blue_gray_50"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+        <View
+            android:id="@+id/divider_top"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/divider_stroke_s"
+            android:background="@color/blue_gray_100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/study"
+            android:layout_width="@dimen/size_icon"
+            android:layout_height="@dimen/size_icon"
+            android:src="@drawable/ic_music"
+            app:layout_constraintBottom_toBottomOf="@id/background_study"
+            app:layout_constraintEnd_toEndOf="@id/background_study"
+            app:layout_constraintStart_toStartOf="@id/background_study"
+            app:layout_constraintTop_toTopOf="@id/background_study" />
+
+        <View
+            android:id="@+id/background_study"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/divider_icon_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_top" />
+
+        <View
+            android:id="@+id/divider_icon_1"
+            android:layout_width="@dimen/divider_stroke_s"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/spacing_xs"
+            android:background="@color/blue_gray_100"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/background_exam"
+            app:layout_constraintStart_toEndOf="@id/background_study"
+            app:layout_constraintTop_toBottomOf="@id/divider_top" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/exam"
+            android:layout_width="@dimen/size_icon"
+            android:layout_height="@dimen/size_icon"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_translate"
+            app:layout_constraintBottom_toBottomOf="@id/background_exam"
+            app:layout_constraintEnd_toEndOf="@id/background_exam"
+            app:layout_constraintStart_toStartOf="@id/background_exam"
+            app:layout_constraintTop_toTopOf="@id/background_exam" />
+
+        <View
+            android:id="@+id/background_exam"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/divider_icon_2"
+            app:layout_constraintStart_toEndOf="@id/divider_icon_1"
+            app:layout_constraintTop_toBottomOf="@id/divider_top" />
+
+        <View
+            android:id="@+id/divider_icon_2"
+            android:layout_width="@dimen/divider_stroke_s"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/spacing_xs"
+            android:background="@color/blue_gray_100"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/background_settings"
+            app:layout_constraintStart_toEndOf="@id/background_exam"
+            app:layout_constraintTop_toBottomOf="@id/divider_top" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/settings"
+            android:layout_width="@dimen/size_icon"
+            android:layout_height="@dimen/size_icon"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_settings"
+            app:layout_constraintBottom_toBottomOf="@id/background_settings"
+            app:layout_constraintEnd_toEndOf="@id/background_settings"
+            app:layout_constraintStart_toStartOf="@id/background_settings"
+            app:layout_constraintTop_toTopOf="@id/background_settings" />
+
+        <View
+            android:id="@+id/background_settings"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/divider_icon_2"
+            app:layout_constraintTop_toBottomOf="@id/divider_top" />
+
+    </merge>
+</layout>
