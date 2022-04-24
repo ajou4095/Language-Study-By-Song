@@ -6,13 +6,15 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class MusicInformationDirectory(
-    val directory: String,
+    val title: String,
+    val path: String,
     val musicInformationList: List<MusicInformation>
 ) : Parcelable {
     companion object {
         val default: MusicInformationDirectory = MusicInformationDirectory(
-            directory = "",
-            musicInformationList = listOf()
+            title = "",
+            path = "",
+            musicInformationList = emptyList()
         )
     }
 }

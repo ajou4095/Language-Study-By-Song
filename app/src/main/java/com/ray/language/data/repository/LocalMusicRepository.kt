@@ -14,7 +14,8 @@ class LocalMusicRepository(
             MediaStore.Audio.Media.TITLE,
             MediaStore.Audio.Media.ARTIST,
             MediaStore.Audio.Media.DATA,
-            MediaStore.Audio.Media.DURATION
+            MediaStore.Audio.Media.DURATION,
+            MediaStore.Audio.Albums.ALBUM_ART
         )
         val selection = "${MediaStore.Audio.Media.DURATION} >= ?"
         val selectionArgs = arrayOf("60000")
@@ -31,6 +32,7 @@ class LocalMusicRepository(
             val titleColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE)
             val artistColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST)
             val dataColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)
+            val albumArtColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Albums.ALBUM_ART)
 
             var directory: String? = null
             var musicInformationList = mutableListOf<MusicInformation>()
@@ -40,14 +42,16 @@ class LocalMusicRepository(
                 val musicInformation = MusicInformation(
                     title = cursor.getString(titleColumn),
                     artist = cursor.getString(artistColumn),
-                    path = path
+                    path = path,
+                    thumbnailPath = cursor.getString(albumArtColumn)
                 )
 
                 if (directory != musicDirectory) {
                     if (directory != null) {
                         result.add(
                             MusicInformationDirectory(
-                                directory = directory,
+                                title = directory.substringAfterLast('/'),
+                                path = directory,
                                 musicInformationList = musicInformationList
                             )
                         )
@@ -60,7 +64,8 @@ class LocalMusicRepository(
 
             result.add(
                 MusicInformationDirectory(
-                    directory = directory ?: "",
+                    title = directory?.substringAfterLast('/') ?: "",
+                    path = directory ?: "",
                     musicInformationList = musicInformationList
                 )
             )

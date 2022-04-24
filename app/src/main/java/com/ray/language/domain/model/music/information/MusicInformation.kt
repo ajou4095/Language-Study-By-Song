@@ -7,13 +7,15 @@ import kotlinx.parcelize.Parcelize
 data class MusicInformation(
     val title: String,
     val artist: String,
-    val path: String
+    val path: String,
+    val thumbnailPath: String?
 ) : Parcelable {
     companion object {
         val default: MusicInformation = MusicInformation(
             title = "",
             artist = "",
-            path = ""
+            path = "",
+            thumbnailPath = ""
         )
     }
 }
