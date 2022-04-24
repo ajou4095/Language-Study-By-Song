@@ -3,6 +3,7 @@ package com.ray.language.presentation.ui.study
 import androidx.fragment.app.viewModels
 import com.ray.language.common.util.eventObserve
 import com.ray.language.databinding.FragmentStudyMethodSelectBinding
+import com.ray.language.presentation.helper.study.select.local.LocalMusicActivityHelper
 import com.ray.language.presentation.ui.common.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +22,7 @@ class StudyMethodSelectFragment : BaseFragment<FragmentStudyMethodSelectBinding>
         viewModel.event.eventObserve(viewLifecycleOwner) { event ->
             when (event) {
                 StudyMethodViewEvent.MUSIC_LOCAL -> {
-                    TODO()
+                    startActivity(LocalMusicActivityHelper.getNavigationIntent(requireContext()))
                 }
                 StudyMethodViewEvent.MUSIC_YOUTUBE -> {
                     TODO()
