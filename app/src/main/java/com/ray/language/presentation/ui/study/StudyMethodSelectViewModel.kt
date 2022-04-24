@@ -15,22 +15,22 @@ class StudyMethodSelectViewModel @Inject constructor() : ViewModel() {
         get() = _event
 
     fun selectMusicFromLocal() {
-        _event.value = Event(StudyMethodViewEvent.MUSIC_LOCAL)
+        _event.value = Event(StudyMethodViewEvent.LocalMusic)
     }
 
     fun selectMusicFromYoutube() {
-        _event.value = Event(StudyMethodViewEvent.MUSIC_YOUTUBE)
+        _event.value = Event(StudyMethodViewEvent.YoutubeMusic)
     }
 
     fun selectMusicFromPopularList() {
-        _event.value = Event(StudyMethodViewEvent.MUSIC_POPULAR)
+        _event.value = Event(StudyMethodViewEvent.PopularMusic)
     }
 
     fun selectMusicBySearch() {
-        _event.value = Event(StudyMethodViewEvent.MUSIC_SEARCH)
+        _event.value = Event(StudyMethodViewEvent.MusicSearch)
     }
 
     fun selectKanjiBySearch() {
-        _event.value = Event(StudyMethodViewEvent.MUSIC_SEARCH)
+        _event.value = Event(StudyMethodViewEvent.MusicSearch)
     }
 }

@@ -21,20 +21,20 @@ class StudyMethodSelectFragment : BaseFragment<FragmentStudyMethodSelectBinding>
     override fun initObserver() {
         viewModel.event.eventObserve(viewLifecycleOwner) { event ->
             when (event) {
-                StudyMethodViewEvent.MUSIC_LOCAL -> {
+                StudyMethodViewEvent.LocalMusic -> {
                     startActivity(LocalMusicActivityHelper.getNavigationIntent(requireContext()))
                 }
-                StudyMethodViewEvent.MUSIC_YOUTUBE -> {
+                StudyMethodViewEvent.YoutubeMusic -> {
                     TODO()
                 }
-                StudyMethodViewEvent.MUSIC_POPULAR -> {
+                StudyMethodViewEvent.PopularMusic -> {
                     TODO()
                 }
-                StudyMethodViewEvent.MUSIC_SEARCH -> {
+                StudyMethodViewEvent.MusicSearch -> {
                     TODO()
                 }
 
-                StudyMethodViewEvent.KANJI_SEARCH -> {
+                StudyMethodViewEvent.KanjiSearch -> {
                     TODO()
                 }
             }
