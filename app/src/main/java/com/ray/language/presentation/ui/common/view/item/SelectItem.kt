@@ -10,7 +10,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.ray.language.R
 import com.ray.language.common.util.delayOnLifecycle
-import com.ray.language.common.util.dp
+import com.ray.language.presentation.ui.common.util.dp
 import com.ray.language.databinding.ViewSelectItemBinding
 import com.ray.language.presentation.ui.common.UiCommonContract
 

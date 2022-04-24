@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 import com.ray.language.R
-import com.ray.language.common.util.getDisplayWidth
+import com.ray.language.presentation.ui.common.util.getDisplayWidth
 
 abstract class BaseDialogFragment<B : ViewDataBinding>(
     private val inflater: (LayoutInflater, ViewGroup?, Boolean) -> B
