@@ -15,16 +15,23 @@ class MainViewModel @Inject constructor() : ViewModel() {
     val event: LiveData<Event<MainViewEvent>>
         get() = _event
 
-    fun onTabClick(position: Int) {
-        when (position) {
+    private var currentPosition: Int = -1
+
+    fun onTabClick(newPosition: Int) {
+        if (newPosition == currentPosition) return
+
+        val leftToRight = newPosition > currentPosition
+        currentPosition = newPosition
+
+        when (newPosition) {
             MainTabContract.TAB_STUDY -> {
-                _event.value = Event(MainViewEvent.Study)
+                _event.value = Event(MainViewEvent.Study(leftToRight))
             }
             MainTabContract.TAB_EXAM -> {
-                _event.value = Event(MainViewEvent.Exam)
+                _event.value = Event(MainViewEvent.Exam(leftToRight))
             }
             MainTabContract.TAB_SETTINGS -> {
-                _event.value = Event(MainViewEvent.Settings)
+                _event.value = Event(MainViewEvent.Settings(leftToRight))
             }
         }
     }
