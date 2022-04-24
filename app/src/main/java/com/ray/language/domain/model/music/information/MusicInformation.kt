@@ -8,14 +8,14 @@ data class MusicInformation(
     val title: String,
     val artist: String,
     val path: String,
-    val thumbnailPath: String?
+    val albumId: Long
 ) : Parcelable {
     companion object {
         val default: MusicInformation = MusicInformation(
             title = "",
             artist = "",
             path = "",
-            thumbnailPath = ""
+            albumId = 0
         )
     }
 }

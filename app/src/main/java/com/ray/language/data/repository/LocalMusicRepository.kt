@@ -15,7 +15,7 @@ class LocalMusicRepository(
             MediaStore.Audio.Media.ARTIST,
             MediaStore.Audio.Media.DATA,
             MediaStore.Audio.Media.DURATION,
-            MediaStore.Audio.Albums.ALBUM_ART
+            MediaStore.Audio.Media.ALBUM_ID
         )
         val selection = "${MediaStore.Audio.Media.DURATION} >= ?"
         val selectionArgs = arrayOf("60000")
@@ -32,7 +32,7 @@ class LocalMusicRepository(
             val titleColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE)
             val artistColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST)
             val dataColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)
-            val albumArtColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Albums.ALBUM_ART)
+            val albumIdColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID)
 
             var directory: String? = null
             var musicInformationList = mutableListOf<MusicInformation>()
@@ -43,7 +43,7 @@ class LocalMusicRepository(
                     title = cursor.getString(titleColumn),
                     artist = cursor.getString(artistColumn),
                     path = path,
-                    thumbnailPath = cursor.getString(albumArtColumn)
+                    albumId = cursor.getLong(albumIdColumn)
                 )
 
                 if (directory != musicDirectory) {
