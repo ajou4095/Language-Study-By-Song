@@ -1,0 +1,38 @@
+package com.ray.language.presentation.ui.study.select.local.folder
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.ray.language.databinding.ItemLocalFolderBinding
+import com.ray.language.domain.model.music.MusicInformationDirectory
+
+class LocalFolderViewHolder(
+    private val binding: ItemLocalFolderBinding
+) : RecyclerView.ViewHolder(binding.root) {
+
+    fun bind(
+        musicInformationDirectory: MusicInformationDirectory,
+        onItemClick: ((item: MusicInformationDirectory) -> Unit)?
+    ) {
+        with(binding) {
+            //TODO : thumbnail.setFolderThumbnailDrawable(musicInformationDirectory)
+            title.text = musicInformationDirectory.title
+            description.text = String.format(LocalFolderContract.ITEM_DESCRIPTION, musicInformationDirectory.musicInformationList.size)
+            root.setOnClickListener {
+                onItemClick?.invoke(musicInformationDirectory)
+            }
+        }
+    }
+
+    companion object {
+        fun create(parent: ViewGroup): LocalFolderViewHolder {
+            val binding = ItemLocalFolderBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+
+            return LocalFolderViewHolder(binding)
+        }
+    }
+}
