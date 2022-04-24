@@ -33,6 +33,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             when (event) {
                 is MainViewEvent.Study -> {
                     slideFragment(
+                        container = binding.container,
                         fragment = StudyMethodSelectFragmentHelper.newInstance(),
                         leftToRight = event.leftToRight,
                         addToBackStack = false
@@ -40,6 +41,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 }
                 is MainViewEvent.Exam -> {
                     slideFragment(
+                        container = binding.container,
                         fragment = LanguageExamSelectFragmentHelper.newInstance(),
                         leftToRight = event.leftToRight,
                         addToBackStack = false
@@ -47,6 +49,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 }
                 is MainViewEvent.Settings -> {
                     slideFragment(
+                        container = binding.container,
                         fragment = SettingsFragmentHelper.newInstance(),
                         leftToRight = event.leftToRight,
                         addToBackStack = false

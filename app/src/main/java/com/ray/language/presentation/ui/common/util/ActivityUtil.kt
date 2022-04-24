@@ -1,13 +1,13 @@
 package com.ray.language.presentation.ui.common.util
 
-import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.commit
 import com.ray.language.R
 
 inline fun <reified F : Fragment> FragmentActivity.slideFragment(
-    @IdRes containerViewId: Int = R.id.container,
+    container: FragmentContainerView,
     fragment: F,
     leftToRight: Boolean = true,
     addToBackStack: Boolean = true
@@ -29,7 +29,7 @@ inline fun <reified F : Fragment> FragmentActivity.slideFragment(
                 R.anim.slide_out_left
             )
         }
-        replace(containerViewId, fragment, tag)
+        replace(container.id, fragment, tag)
         setReorderingAllowed(true)
         if (addToBackStack) addToBackStack(tag)
     }
