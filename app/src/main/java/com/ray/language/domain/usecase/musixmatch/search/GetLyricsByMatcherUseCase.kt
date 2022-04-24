@@ -1,7 +1,7 @@
 package com.ray.language.domain.usecase.musixmatch.search
 
 import com.ray.language.data.repository.MusixMatchRepository
-import com.ray.language.domain.model.music.LyricsInformation
+import com.ray.language.domain.model.music.information.LyricsInformation
 import com.skydoves.sandwich.suspendOnFailure
 import com.skydoves.sandwich.suspendOnSuccess
 import dagger.Reusable

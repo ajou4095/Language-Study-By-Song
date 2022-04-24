@@ -8,10 +8,10 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 @Reusable
-class GetMusicListUseCase @Inject constructor(
+class GetMusicInformationDirectoryListUseCase @Inject constructor(
     private val localMusicRepository: LocalMusicRepository
 ) {
     operator fun invoke() = flow {
-        emit(localMusicRepository.getMusicsInformation())
+        emit(localMusicRepository.getMusicInformationDirectoryList())
     }.flowOn(Dispatchers.IO)
 }

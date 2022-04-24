@@ -1,4 +1,4 @@
-package com.ray.language.domain.model.music
+package com.ray.language.domain.model.music.information
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
