@@ -1,5 +1,9 @@
 package com.ray.language.di
 
+import android.content.Context
+import com.facebook.flipper.android.AndroidFlipperClient
+import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
+import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.ray.language.BuildConfig
 import com.skydoves.sandwich.adapters.ApiResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
@@ -7,6 +11,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 import okhttp3.OkHttpClient
@@ -15,10 +20,24 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 @Module
 @InstallIn(SingletonComponent::class)
-class RetrofitModule {
+class NetworkModule {
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
+
+    @Provides
+    @Singleton
+    fun provideFlipperClient(
+        @ApplicationContext context: Context
+    ): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addNetworkInterceptor(
+                FlipperOkhttpInterceptor(
+                    AndroidFlipperClient.getInstance(context).getPlugin(NetworkFlipperPlugin.ID)
+                )
+            )
+            .build()
+    }
 
     @Provides
     @Singleton
