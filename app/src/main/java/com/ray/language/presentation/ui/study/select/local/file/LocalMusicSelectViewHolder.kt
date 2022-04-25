@@ -3,11 +3,11 @@ package com.ray.language.presentation.ui.study.select.local.file
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ray.language.databinding.ItemLocalFolderBinding
+import com.ray.language.databinding.ItemLocalMusicBinding
 import com.ray.language.domain.model.music.information.MusicInformation
 
 class LocalMusicSelectViewHolder(
-    private val binding: ItemLocalFolderBinding
+    private val binding: ItemLocalMusicBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(
@@ -17,7 +17,8 @@ class LocalMusicSelectViewHolder(
         with(binding) {
             //TODO : thumbnail.setFolderThumbnailDrawable(musicInformationDirectory)
             title.text = musicInformation.title
-            description.text = String.format(
+            artist.text = musicInformation.artist
+            duration.text = String.format(
                 LocalMusicSelectContract.DURATION,
                 musicInformation.duration / 1000 / 60,
                 musicInformation.duration / 1000 % 60
@@ -30,7 +31,7 @@ class LocalMusicSelectViewHolder(
 
     companion object {
         fun create(parent: ViewGroup): LocalMusicSelectViewHolder {
-            val binding = ItemLocalFolderBinding.inflate(
+            val binding = ItemLocalMusicBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
