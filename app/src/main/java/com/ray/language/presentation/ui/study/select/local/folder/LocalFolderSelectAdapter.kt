@@ -5,14 +5,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.ray.language.domain.model.music.MusicInformationDirectory
 
-class LocalFolderAdapter : ListAdapter<MusicInformationDirectory, LocalFolderViewHolder>(LocalFolderComparator()) {
+class LocalFolderAdapter : ListAdapter<MusicInformationDirectory, LocalFolderSelectViewHolder>(LocalFolderComparator()) {
     var onItemClick: ((item: MusicInformationDirectory) -> Unit)? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocalFolderViewHolder {
-        return LocalFolderViewHolder.create(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocalFolderSelectViewHolder {
+        return LocalFolderSelectViewHolder.create(parent)
     }
 
-    override fun onBindViewHolder(holder: LocalFolderViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: LocalFolderSelectViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item, onItemClick)
     }

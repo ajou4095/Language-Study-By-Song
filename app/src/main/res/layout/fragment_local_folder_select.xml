@@ -9,7 +9,7 @@
             name="vm"
             type="com.ray.language.presentation.ui.study.select.local.folder.LocalFolderSelectViewModel" />
 
-        <import type="com.ray.language.presentation.ui.study.select.local.folder.LocalFolderContract" />
+        <import type="com.ray.language.presentation.ui.study.select.local.folder.LocalFolderSelectContract" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spacing_xl"
             android:layout_marginTop="@dimen/spacing_xxl"
-            android:text="@{LocalFolderContract.TITLE}"
+            android:text="@{LocalFolderSelectContract.TITLE}"
             android:textAppearance="?attr/typographyHeadline5"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/list"

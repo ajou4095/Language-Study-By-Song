@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ray.language.databinding.ItemLocalFolderBinding
 import com.ray.language.domain.model.music.MusicInformationDirectory
 
-class LocalFolderViewHolder(
+class LocalFolderSelectViewHolder(
     private val binding: ItemLocalFolderBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -17,7 +17,7 @@ class LocalFolderViewHolder(
         with(binding) {
             //TODO : thumbnail.setFolderThumbnailDrawable(musicInformationDirectory)
             title.text = musicInformationDirectory.title
-            description.text = String.format(LocalFolderContract.ITEM_DESCRIPTION, musicInformationDirectory.musicInformationList.size)
+            description.text = String.format(LocalFolderSelectContract.ITEM_DESCRIPTION, musicInformationDirectory.musicInformationList.size)
             root.setOnClickListener {
                 onItemClick?.invoke(musicInformationDirectory)
             }
@@ -25,14 +25,14 @@ class LocalFolderViewHolder(
     }
 
     companion object {
-        fun create(parent: ViewGroup): LocalFolderViewHolder {
+        fun create(parent: ViewGroup): LocalFolderSelectViewHolder {
             val binding = ItemLocalFolderBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
             )
 
-            return LocalFolderViewHolder(binding)
+            return LocalFolderSelectViewHolder(binding)
         }
     }
 }

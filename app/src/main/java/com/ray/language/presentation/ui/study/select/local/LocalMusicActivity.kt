@@ -3,9 +3,13 @@ package com.ray.language.presentation.ui.study.select.local
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.commit
+import com.ray.language.common.util.eventObserve
 import com.ray.language.databinding.ActivityLocalMusicBinding
+import com.ray.language.presentation.helper.study.select.local.detail.LocalMusicDetailFragmentHelper
+import com.ray.language.presentation.helper.study.select.local.file.LocalMusicSelectFragmentHelper
 import com.ray.language.presentation.helper.study.select.local.folder.LocalFolderSelectFragmentHelper
 import com.ray.language.presentation.ui.common.base.BaseActivity
+import com.ray.language.presentation.ui.common.util.slideFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,6 +19,7 @@ class LocalMusicActivity : BaseActivity<ActivityLocalMusicBinding>(ActivityLocal
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
+        initObserver()
     }
 
     override fun initView() {
@@ -25,6 +30,34 @@ class LocalMusicActivity : BaseActivity<ActivityLocalMusicBinding>(ActivityLocal
             supportFragmentManager.commit {
                 val fragment = LocalFolderSelectFragmentHelper.newInstance()
                 replace(container.id, fragment, fragment::class.simpleName)
+            }
+        }
+    }
+
+    override fun initObserver() {
+        viewModel.event.eventObserve(this@LocalMusicActivity) { event ->
+            when (event) {
+                LocalMusicViewEvent.FolderSelect -> {
+                    val fragment = LocalMusicSelectFragmentHelper.newInstance(viewModel.selectedDirectory)
+                    slideFragment(
+                        container = binding.container,
+                        fragment = fragment,
+                        leftToRight = true,
+                        addToBackStack = true
+                    )
+                }
+                LocalMusicViewEvent.MusicSelect -> {
+                    val fragment = LocalMusicDetailFragmentHelper.newInstance()
+                    slideFragment(
+                        container = binding.container,
+                        fragment = fragment,
+                        leftToRight = true,
+                        addToBackStack = true
+                    )
+                }
+                LocalMusicViewEvent.MusicDetailCheck -> {
+                    TODO()
+                }
             }
         }
     }

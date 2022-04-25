@@ -31,6 +31,7 @@ class LocalMusicRepository(
         )?.use { cursor ->
             val titleColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE)
             val artistColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST)
+            val durationColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION)
             val dataColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)
             val albumIdColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID)
 
@@ -42,6 +43,7 @@ class LocalMusicRepository(
                 val musicInformation = MusicInformation(
                     title = cursor.getString(titleColumn),
                     artist = cursor.getString(artistColumn),
+                    duration = cursor.getLong(durationColumn),
                     path = path,
                     albumId = cursor.getLong(albumIdColumn)
                 )

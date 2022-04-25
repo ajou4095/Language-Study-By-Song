@@ -20,7 +20,7 @@ class LocalFolderSelectFragment : BaseFragment<FragmentLocalFolderSelectBinding>
 
             list.adapter = LocalFolderAdapter().apply {
                 onItemClick = {
-                    activityViewModel.selectedDirectory.value = it
+                    activityViewModel.selectDirectory(it)
                 }
             }
         }
