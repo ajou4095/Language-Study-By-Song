@@ -9,6 +9,7 @@ import com.ray.language.presentation.helper.study.select.local.detail.LocalMusic
 import com.ray.language.presentation.helper.study.select.local.file.LocalMusicSelectFragmentHelper
 import com.ray.language.presentation.helper.study.select.local.folder.LocalFolderSelectFragmentHelper
 import com.ray.language.presentation.ui.common.base.BaseActivity
+import com.ray.language.presentation.ui.common.util.showDialog
 import com.ray.language.presentation.ui.common.util.slideFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,7 +48,7 @@ class LocalMusicActivity : BaseActivity<ActivityLocalMusicBinding>(ActivityLocal
                     )
                 }
                 LocalMusicViewEvent.MusicSelect -> {
-                    val fragment = LocalMusicDetailFragmentHelper.newInstance()
+                    val fragment = LocalMusicDetailFragmentHelper.newInstance(viewModel.selectedMusicInformation)
                     slideFragment(
                         container = binding.container,
                         fragment = fragment,
@@ -56,7 +57,11 @@ class LocalMusicActivity : BaseActivity<ActivityLocalMusicBinding>(ActivityLocal
                     )
                 }
                 LocalMusicViewEvent.MusicDetailCheck -> {
-                    TODO()
+                    // TODO
+                    showDialog(
+                        title = "선택한 노래",
+                        message = "${viewModel.selectedTitle}\n${viewModel.selectedArtist}"
+                    )
                 }
             }
         }

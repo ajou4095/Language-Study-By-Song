@@ -107,6 +107,11 @@
         <item name="android:textColor">@color/blue_gray_50</item>
     </style>
 
+    <style name="Typography.ConfirmButton.Blue.NoCorner">
+        <item name="android:background">@drawable/bg_confirm_button_blue_no_corner</item>
+        <item name="android:textColor">@color/blue_gray_50</item>
+    </style>
+
     <style name="Typography.ConfirmButton.BlueGray">
         <item name="android:background">@drawable/bg_confirm_button_blue_gray</item>
         <item name="android:textColor">@color/blue_gray_900</item>
