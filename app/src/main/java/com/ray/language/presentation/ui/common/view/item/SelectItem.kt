@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.content.res.use
 import androidx.core.view.isVisible
 import com.ray.language.R
 import com.ray.language.common.util.delayOnLifecycle
