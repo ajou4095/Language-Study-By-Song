@@ -36,10 +36,10 @@ class SelectItem @JvmOverloads constructor(
         }
 
     init {
-        val attributes = context.obtainStyledAttributes(attributeSet, R.styleable.SelectItem)
-        val text = attributes.getText(R.styleable.SelectItem_android_text) ?: ""
-        val srcResourceId = attributes.getResourceId(R.styleable.SelectItem_android_src, ResourcesCompat.ID_NULL)
-        attributes.recycle()
+        context.obtainStyledAttributes(attributeSet, R.styleable.SelectItem).use { attributes ->
+            setText(attributes.getText(R.styleable.SelectItem_android_text) ?: "")
+            setImageResource(attributes.getResourceId(R.styleable.SelectItem_android_src, ResourcesCompat.ID_NULL))
+        }
 
         val background = TypedValue().apply {
             context.theme.resolveAttribute(android.R.attr.selectableItemBackground, this, true)
@@ -48,9 +48,6 @@ class SelectItem @JvmOverloads constructor(
         minHeight = 50.dp.toInt()
         maxHeight = 50.dp.toInt()
         isClickable = true
-
-        setText(text)
-        setImageResource(srcResourceId)
     }
 
     fun setText(text: CharSequence) {
