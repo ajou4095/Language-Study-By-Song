@@ -5,11 +5,11 @@ import androidx.activity.viewModels
 import androidx.fragment.app.commit
 import com.ray.language.common.util.eventObserve
 import com.ray.language.databinding.ActivityLocalMusicBinding
+import com.ray.language.presentation.helper.study.select.local.LocalMusicActivityHelper
 import com.ray.language.presentation.helper.study.select.local.detail.LocalMusicDetailFragmentHelper
 import com.ray.language.presentation.helper.study.select.local.file.LocalMusicSelectFragmentHelper
 import com.ray.language.presentation.helper.study.select.local.folder.LocalFolderSelectFragmentHelper
 import com.ray.language.presentation.ui.common.base.BaseActivity
-import com.ray.language.presentation.ui.common.util.showDialog
 import com.ray.language.presentation.ui.common.util.slideFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,7 +27,6 @@ class LocalMusicActivity : BaseActivity<ActivityLocalMusicBinding>(ActivityLocal
         bind {
             vm = viewModel
             lifecycleOwner = this@LocalMusicActivity
-
             supportFragmentManager.commit {
                 val fragment = LocalFolderSelectFragmentHelper.newInstance()
                 replace(container.id, fragment, fragment::class.simpleName)
@@ -57,11 +56,12 @@ class LocalMusicActivity : BaseActivity<ActivityLocalMusicBinding>(ActivityLocal
                     )
                 }
                 LocalMusicViewEvent.MusicDetailCheck -> {
-                    // TODO
-                    showDialog(
-                        title = "선택한 노래",
-                        message = "${viewModel.selectedTitle}\n${viewModel.selectedArtist}"
+                    val result = LocalMusicActivityHelper.getResultIntent(
+                        viewModel.selectedTitle,
+                        viewModel.selectedArtist
                     )
+                    setResult(RESULT_OK, result)
+                    finish()
                 }
             }
         }
