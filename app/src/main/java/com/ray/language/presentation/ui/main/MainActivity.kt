@@ -6,7 +6,7 @@ import com.ray.language.common.util.eventObserve
 import com.ray.language.databinding.ActivityMainBinding
 import com.ray.language.presentation.helper.exam.LanguageExamSelectFragmentHelper
 import com.ray.language.presentation.helper.settings.SettingsFragmentHelper
-import com.ray.language.presentation.helper.study.StudyMethodSelectFragmentHelper
+import com.ray.language.presentation.helper.studymethod.StudyMethodSelectFragmentHelper
 import com.ray.language.presentation.ui.common.base.BaseActivity
 import com.ray.language.presentation.ui.common.util.slideFragment
 import dagger.hilt.android.AndroidEntryPoint

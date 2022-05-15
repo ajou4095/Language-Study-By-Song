@@ -8,7 +8,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.ray.language.common.util.livedata.Event
 import com.ray.language.domain.model.music.information.MusicInformation
-import com.ray.language.presentation.helper.study.select.local.detail.LocalMusicDetailFragmentHelper
+import com.ray.language.presentation.helper.studymethod.select.local.detail.LocalMusicDetailFragmentHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

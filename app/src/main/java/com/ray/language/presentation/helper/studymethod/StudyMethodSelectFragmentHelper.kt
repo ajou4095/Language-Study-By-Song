@@ -1,4 +1,4 @@
-package com.ray.language.presentation.helper.study
+package com.ray.language.presentation.helper.studymethod
 
 import com.ray.language.presentation.ui.studymethod.StudyMethodSelectFragment
 

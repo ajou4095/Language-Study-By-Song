@@ -1,4 +1,4 @@
-package com.ray.language.presentation.helper.study.select.local.folder
+package com.ray.language.presentation.helper.studymethod.select.local.folder
 
 import com.ray.language.presentation.ui.studymethod.select.local.folder.LocalFolderSelectFragment
 

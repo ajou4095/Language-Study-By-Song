@@ -1,4 +1,4 @@
-package com.ray.language.presentation.helper.study.select.local
+package com.ray.language.presentation.helper.studymethod.select.local
 
 import android.content.Context
 import android.content.Intent
