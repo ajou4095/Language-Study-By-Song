@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.study.select.local.detail
+package com.ray.language.presentation.ui.studymethod.select.local.detail
 
 object LocalMusicDetailContract {
     const val TITLE = "이 노래가 맞나요?"

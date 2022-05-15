@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.study
+package com.ray.language.presentation.ui.studymethod
 
 import androidx.fragment.app.viewModels
 import com.ray.language.common.util.eventObserve

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.SavedStateHandle
 import com.ray.language.common.util.getBundle
 import com.ray.language.domain.model.music.information.MusicInformation
-import com.ray.language.presentation.ui.study.select.local.detail.LocalMusicDetailFragment
+import com.ray.language.presentation.ui.studymethod.select.local.detail.LocalMusicDetailFragment
 
 object LocalMusicDetailFragmentHelper {
     private const val BUNDLE = "key_BUNDLE"

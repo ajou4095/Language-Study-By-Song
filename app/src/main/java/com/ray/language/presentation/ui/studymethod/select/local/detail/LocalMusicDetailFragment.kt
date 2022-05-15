@@ -1,11 +1,11 @@
-package com.ray.language.presentation.ui.study.select.local.detail
+package com.ray.language.presentation.ui.studymethod.select.local.detail
 
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.ray.language.common.util.eventObserve
 import com.ray.language.databinding.FragmentLocalMusicDetailBinding
 import com.ray.language.presentation.ui.common.base.BaseFragment
-import com.ray.language.presentation.ui.study.select.local.LocalMusicViewModel
+import com.ray.language.presentation.ui.studymethod.select.local.LocalMusicViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

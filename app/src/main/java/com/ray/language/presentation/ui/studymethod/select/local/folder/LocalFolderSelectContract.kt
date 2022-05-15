@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.study.select.local.folder
+package com.ray.language.presentation.ui.studymethod.select.local.folder
 
 object LocalFolderSelectContract {
     const val TITLE = "노래를 선택해주세요"

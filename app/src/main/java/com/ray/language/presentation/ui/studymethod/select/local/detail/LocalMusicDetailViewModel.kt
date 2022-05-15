@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.study.select.local.detail
+package com.ray.language.presentation.ui.studymethod.select.local.detail
 
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo

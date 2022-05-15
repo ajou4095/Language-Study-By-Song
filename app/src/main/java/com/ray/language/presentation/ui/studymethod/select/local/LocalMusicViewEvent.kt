@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.study.select.local
+package com.ray.language.presentation.ui.studymethod.select.local
 
 sealed interface LocalMusicViewEvent {
     object FolderSelect : LocalMusicViewEvent

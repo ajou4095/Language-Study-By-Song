@@ -1,10 +1,10 @@
-package com.ray.language.presentation.ui.study.select.local.folder
+package com.ray.language.presentation.ui.studymethod.select.local.folder
 
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.ray.language.databinding.FragmentLocalFolderSelectBinding
 import com.ray.language.presentation.ui.common.base.BaseFragment
-import com.ray.language.presentation.ui.study.select.local.LocalMusicViewModel
+import com.ray.language.presentation.ui.studymethod.select.local.LocalMusicViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

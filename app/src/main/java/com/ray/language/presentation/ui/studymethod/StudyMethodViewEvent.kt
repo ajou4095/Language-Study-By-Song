@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.study
+package com.ray.language.presentation.ui.studymethod
 
 sealed interface StudyMethodViewEvent {
     object LocalMusic : StudyMethodViewEvent

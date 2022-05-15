@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.ray.language.common.util.getStringOrDefault
-import com.ray.language.presentation.ui.study.select.local.LocalMusicActivity
+import com.ray.language.presentation.ui.studymethod.select.local.LocalMusicActivity
 
 object LocalMusicActivityHelper {
     private const val TITLE = "key_TITLE"

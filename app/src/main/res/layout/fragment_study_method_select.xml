@@ -7,9 +7,9 @@
 
         <variable
             name="vm"
-            type="com.ray.language.presentation.ui.study.StudyMethodSelectViewModel" />
+            type="com.ray.language.presentation.ui.studymethod.StudyMethodSelectViewModel" />
 
-        <import type="com.ray.language.presentation.ui.study.StudyMethodSelectContract" />
+        <import type="com.ray.language.presentation.ui.studymethod.StudyMethodSelectContract" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

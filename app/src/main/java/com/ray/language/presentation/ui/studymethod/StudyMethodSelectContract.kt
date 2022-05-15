@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.study
+package com.ray.language.presentation.ui.studymethod
 
 object StudyMethodSelectContract {
     const val TITLE = "어떤 방법으로\n공부를 진행할까요?"

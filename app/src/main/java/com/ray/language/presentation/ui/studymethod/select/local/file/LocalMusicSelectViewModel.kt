@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.study.select.local.file
+package com.ray.language.presentation.ui.studymethod.select.local.file
 
 import android.os.Bundle
 import androidx.lifecycle.SavedStateHandle
