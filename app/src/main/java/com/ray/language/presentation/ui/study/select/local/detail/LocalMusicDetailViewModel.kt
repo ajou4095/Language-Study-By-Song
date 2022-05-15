@@ -1,5 +1,6 @@
 package com.ray.language.presentation.ui.study.select.local.detail
 
+import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,8 +16,12 @@ import javax.inject.Inject
 class LocalMusicDetailViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
+    val bundle: Bundle? by lazy {
+        LocalMusicDetailFragmentHelper.getBundle(savedStateHandle)
+    }
+
     val musicInformation: MusicInformation by lazy {
-        LocalMusicDetailFragmentHelper.getMusicInformation(savedStateHandle)
+        LocalMusicDetailFragmentHelper.getMusicInformation(bundle)
     }
 
     private val _event = MutableLiveData<Event<LocalMusicDetailViewEvent>>()

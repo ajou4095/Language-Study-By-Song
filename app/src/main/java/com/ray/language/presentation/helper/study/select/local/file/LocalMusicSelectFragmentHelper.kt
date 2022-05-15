@@ -2,10 +2,12 @@ package com.ray.language.presentation.helper.study.select.local.file
 
 import android.os.Bundle
 import androidx.lifecycle.SavedStateHandle
+import com.ray.language.common.util.getBundle
 import com.ray.language.domain.model.music.MusicInformationDirectory
 import com.ray.language.presentation.ui.study.select.local.file.LocalMusicSelectFragment
 
 object LocalMusicSelectFragmentHelper {
+    private const val BUNDLE = "key_BUNDLE"
     private const val DIRECTORY = "key_DIRECTORY"
 
     fun newInstance(
@@ -20,7 +22,11 @@ object LocalMusicSelectFragmentHelper {
         return fragment
     }
 
-    fun getDirectory(savedStateHandle: SavedStateHandle): MusicInformationDirectory {
-        return savedStateHandle.get<MusicInformationDirectory>(DIRECTORY) ?: MusicInformationDirectory.default
+    fun getBundle(savedStateHandle: SavedStateHandle): Bundle? {
+        return savedStateHandle.getBundle(BUNDLE)
+    }
+
+    fun getDirectory(bundle: Bundle?): MusicInformationDirectory {
+        return bundle?.getParcelable(DIRECTORY) ?: MusicInformationDirectory.default
     }
 }
