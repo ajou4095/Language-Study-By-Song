@@ -6,31 +6,31 @@ import com.ray.language.common.util.livedata.Event
 import com.ray.language.common.util.livedata.EventObserver
 
 val LiveData<Boolean>.valueOrDefault: Boolean
-    get() = value ?: false
+    get() = value.orFalse()
 
 val LiveData<Byte>.valueOrDefault: Byte
-    get() = value ?: 0
+    get() = value.orZero()
 
 val LiveData<Char>.valueOrDefault: Char
-    get() = value ?: Char.MIN_VALUE
+    get() = value.orEmpty()
 
 val LiveData<Double>.valueOrDefault: Double
-    get() = value ?: 0.0
+    get() = value.orZero()
 
 val LiveData<Float>.valueOrDefault: Float
-    get() = value ?: 0f
+    get() = value.orZero()
 
 val LiveData<Int>.valueOrDefault: Int
-    get() = value ?: 0
+    get() = value.orZero()
 
 val LiveData<Long>.valueOrDefault: Long
-    get() = value ?: 0L
+    get() = value.orZero()
 
 val LiveData<Short>.valueOrDefault: Short
-    get() = value ?: 0
+    get() = value.orZero()
 
 val LiveData<String>.valueOrDefault: String
-    get() = value ?: ""
+    get() = value.orEmpty()
 
 fun <T> LiveData<Event<T>>.eventObserve(owner: LifecycleOwner, onEventUnhandledContent: (T) -> Unit) {
     this.observe(owner, EventObserver(onEventUnhandledContent))
