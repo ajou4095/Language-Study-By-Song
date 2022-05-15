@@ -11,15 +11,17 @@ import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin
 abstract class BaseFragment<B : ViewDataBinding>(
     private val inflater: (LayoutInflater, ViewGroup?, Boolean) -> B
 ) : Fragment() {
-    protected lateinit var binding: B
-        private set
+    private var _binding: B? = null
+
+    protected val binding
+        get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = inflater(inflater, container, false)
+        _binding = inflater(inflater, container, false)
         return binding.root
     }
 
@@ -33,6 +35,11 @@ abstract class BaseFragment<B : ViewDataBinding>(
     protected open fun initView() = Unit
 
     protected open fun initObserver() = Unit
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
     protected fun bind(action: B.() -> Unit) {
         binding.action()
