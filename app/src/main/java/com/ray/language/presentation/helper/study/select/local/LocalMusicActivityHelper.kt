@@ -3,6 +3,7 @@ package com.ray.language.presentation.helper.study.select.local
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.ray.language.common.util.getStringOrDefault
 import com.ray.language.presentation.ui.study.select.local.LocalMusicActivity
 
 object LocalMusicActivityHelper {
@@ -24,10 +25,10 @@ object LocalMusicActivityHelper {
     }
 
     fun getTitleFromResult(bundle: Bundle?): String {
-        return bundle?.getString(TITLE) ?: ""
+        return bundle.getStringOrDefault(TITLE)
     }
 
     fun getArtistFromResult(bundle: Bundle?): String {
-        return bundle?.getString(ARTIST) ?: ""
+        return bundle.getStringOrDefault(ARTIST)
     }
 }

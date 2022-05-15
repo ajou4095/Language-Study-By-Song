@@ -17,7 +17,9 @@ object LocalMusicDetailFragmentHelper {
             putParcelable(MUSIC_INFORMATION, directory)
         }
         val fragment = LocalMusicDetailFragment().apply {
-            arguments = args
+            arguments = Bundle().also {
+                it.putBundle(BUNDLE, args)
+            }
         }
         return fragment
     }
