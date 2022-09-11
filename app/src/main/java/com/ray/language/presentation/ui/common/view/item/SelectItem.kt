@@ -11,9 +11,9 @@ import androidx.core.content.res.use
 import androidx.core.view.isVisible
 import com.ray.language.R
 import com.ray.language.common.util.delayOnLifecycle
+import com.ray.language.core.presentation.util.dp
 import com.ray.language.databinding.ViewSelectItemBinding
 import com.ray.language.presentation.ui.common.UiCommonContract
-import com.ray.language.presentation.ui.common.util.dp
 
 class SelectItem @JvmOverloads constructor(
     context: Context,

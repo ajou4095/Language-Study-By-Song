@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.ray.language.R
+import com.ray.language.core.R
+import com.ray.language.core.presentation.util.dp
 import com.ray.language.databinding.ViewMainTabBinding
-import com.ray.language.presentation.ui.common.util.dp
 import com.ray.language.presentation.ui.common.view.OnItemClickListener
 
 class MainTab @JvmOverloads constructor(

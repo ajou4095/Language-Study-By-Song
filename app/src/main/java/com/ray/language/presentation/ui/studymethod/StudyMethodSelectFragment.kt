@@ -2,10 +2,10 @@ package com.ray.language.presentation.ui.studymethod
 
 import androidx.fragment.app.viewModels
 import com.ray.language.common.util.eventObserve
+import com.ray.language.core.presentation.util.registerForActivityResult
 import com.ray.language.databinding.FragmentStudyMethodSelectBinding
 import com.ray.language.presentation.helper.studymethod.select.local.LocalMusicActivityHelper
 import com.ray.language.presentation.ui.common.base.BaseFragment
-import com.ray.language.presentation.ui.common.util.registerForActivityResult
 import com.ray.language.presentation.ui.common.util.showDialog
 import dagger.hilt.android.AndroidEntryPoint
 

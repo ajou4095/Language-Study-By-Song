@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.common.bindingadapter
+package com.ray.language.core.presentation.bindingadapter
 
 import android.widget.TextView
 import androidx.core.view.isVisible

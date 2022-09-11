@@ -4,13 +4,13 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.commit
 import com.ray.language.common.util.eventObserve
+import com.ray.language.core.presentation.util.slideFragment
 import com.ray.language.databinding.ActivityLocalMusicBinding
 import com.ray.language.presentation.helper.studymethod.select.local.LocalMusicActivityHelper
 import com.ray.language.presentation.helper.studymethod.select.local.detail.LocalMusicDetailFragmentHelper
 import com.ray.language.presentation.helper.studymethod.select.local.file.LocalMusicSelectFragmentHelper
 import com.ray.language.presentation.helper.studymethod.select.local.folder.LocalFolderSelectFragmentHelper
 import com.ray.language.presentation.ui.common.base.BaseActivity
-import com.ray.language.presentation.ui.common.util.slideFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

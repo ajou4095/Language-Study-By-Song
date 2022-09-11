@@ -20,46 +20,4 @@ import leakcanary.LeakCanary
 import timber.log.Timber
 
 @HiltAndroidApp
-class LanguageApplication : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
-
-            LeakCanary.config = LeakCanary.config.copy(
-                onHeapAnalyzedListener = FlipperLeakListener()
-            )
-
-            SoLoader.init(this, false)
-
-            if (FlipperUtils.shouldEnableFlipper(this)) {
-                AndroidFlipperClient.getInstance(this).run {
-                    addPlugin(InspectorFlipperPlugin(this@LanguageApplication, DescriptorMapping.withDefaults()))
-                    addPlugin(NetworkFlipperPlugin())
-                    addPlugin(NavigationFlipperPlugin.getInstance())
-                    addPlugin(DatabasesFlipperPlugin(this@LanguageApplication))
-                    addPlugin(CrashReporterPlugin.getInstance())
-                    addPlugin(LeakCanary2FlipperPlugin())
-                    addPlugin(
-                        SharedPreferencesFlipperPlugin(
-                            this@LanguageApplication,
-                            SharedPreferencesManager.SHARED_PREFERENCE_FILE_NAME,
-                            Context.MODE_PRIVATE
-                        )
-                    )
-                    start()
-                }
-                setCrashHandler()
-            }
-
-        }
-    }
-
-    private fun setCrashHandler() {
-        val originHandler = Thread.getDefaultUncaughtExceptionHandler()
-        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
-            CrashReporterPlugin.getInstance().sendExceptionMessage(thread, throwable)
-            originHandler?.uncaughtException(thread, throwable)
-        }
-    }
-}
+open class LanguageApplication : Application()
