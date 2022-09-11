@@ -5,6 +5,7 @@ import com.ray.language.data.model.musixmatch.LyricsRes
 import com.ray.language.data.network.api.MusixMatchApi
 import com.skydoves.sandwich.ApiResponse
 
+// TODO : 추상화
 class MusixMatchRepository(
     private val musixMatchApi: MusixMatchApi
 ) {

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin
+import com.ray.language.core.presentation.util.TAG
 
 abstract class BaseActivity<B : ViewDataBinding>(
     private val inflater: (LayoutInflater) -> B
@@ -12,14 +13,11 @@ abstract class BaseActivity<B : ViewDataBinding>(
     protected lateinit var binding: B
         private set
 
-    val tag: String
-        get() = this.javaClass.simpleName ?: "BaseActivity"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = inflater(layoutInflater)
         setContentView(binding.root)
-        NavigationFlipperPlugin.getInstance().sendNavigationEvent(tag, tag, null)
+        NavigationFlipperPlugin.getInstance().sendNavigationEvent(TAG, TAG, null)
     }
 
     protected open fun initView() = Unit

@@ -26,11 +26,11 @@ class StudyMethodSelectViewModel @Inject constructor() : ViewModel() {
         _event.value = Event(StudyMethodViewEvent.PopularMusic)
     }
 
-    fun selectMusicBySearch() {
-        _event.value = Event(StudyMethodViewEvent.MusicSearch)
+    fun selectMusicBySelf() {
+        _event.value = Event(StudyMethodViewEvent.SelfMusic)
     }
 
     fun selectKanjiBySearch() {
-        _event.value = Event(StudyMethodViewEvent.MusicSearch)
+        _event.value = Event(StudyMethodViewEvent.SelfMusic)
     }
 }

@@ -5,6 +5,7 @@ import android.provider.MediaStore
 import com.ray.language.domain.model.music.MusicInformationDirectory
 import com.ray.language.domain.model.music.information.MusicInformation
 
+// TODO : 추상화
 class LocalMusicRepository(
     private val contentResolver: ContentResolver
 ) {

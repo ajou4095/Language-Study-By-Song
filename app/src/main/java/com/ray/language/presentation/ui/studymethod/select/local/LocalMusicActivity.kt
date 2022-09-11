@@ -47,6 +47,7 @@ class LocalMusicActivity : BaseActivity<ActivityLocalMusicBinding>(ActivityLocal
                     )
                 }
                 LocalMusicViewEvent.MusicSelect -> {
+                    // TODO : 권한 요청
                     val fragment = LocalMusicDetailFragmentHelper.newInstance(viewModel.selectedMusicInformation)
                     slideFragment(
                         container = binding.container,

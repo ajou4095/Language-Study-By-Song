@@ -41,6 +41,13 @@ inline fun <reified F : Fragment> FragmentActivity.slideFragment(
     }
 }
 
+// TODO : Template 에 추가 ( + bg bottomsheet, style )
+val Activity.TAG: String
+    get() = javaClass.simpleName ?: "Activity"
+
+val Fragment.TAG: String
+    get() = javaClass.simpleName ?: "Fragment"
+
 fun Fragment.registerForActivityResult(
     onFailure: (() -> Unit)? = null,
     onSuccess: (() -> Unit)

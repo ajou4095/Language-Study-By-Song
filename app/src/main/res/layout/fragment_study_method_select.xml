@@ -103,14 +103,14 @@
                     tools:text="유명한 노래 선택하기" />
 
                 <com.ray.language.presentation.ui.common.view.item.SelectItem
-                    android:id="@+id/music_search"
+                    android:id="@+id/music_self"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@{StudyMethodSelectContract.MUSIC_SEARCH}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/music_popular"
-                    app:onIntervalClick="@{() -> vm.selectMusicBySearch()}"
+                    app:onIntervalClick="@{() -> vm.selectMusicBySelf()}"
                     tools:text="직접 검색하기" />
 
                 <View
@@ -122,7 +122,7 @@
                     android:background="@color/blue_gray_50"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/music_search" />
+                    app:layout_constraintTop_toBottomOf="@id/music_self" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/icon_kanji"

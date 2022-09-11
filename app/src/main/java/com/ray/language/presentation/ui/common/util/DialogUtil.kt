@@ -1,5 +1,6 @@
 package com.ray.language.presentation.ui.common.util
 
+import com.ray.language.core.presentation.util.TAG
 import com.ray.language.presentation.helper.common.modal.alert.AlertDialogFragmentHelper
 import com.ray.language.presentation.ui.common.base.BaseActivity
 import com.ray.language.presentation.ui.common.base.BaseFragment
@@ -22,7 +23,7 @@ fun BaseActivity<*>.showDialog(
         confirmMessage = confirmMessage,
         onCancel = onCancel,
         onConfirm = onConfirm
-    ).show(supportFragmentManager, tag)
+    ).show(supportFragmentManager, TAG)
 }
 
 fun BaseFragment<*>.showDialog(

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.ray.language.presentation.ui.studymethod.select.self.SelfMusicSelectViewModel" />
+
+        <import type="com.ray.language.presentation.ui.studymethod.select.self.SelfMusicSelectContract" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottomsheet">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_xl"
+            android:layout_marginTop="@dimen/spacing_xxl"
+            android:text="@{SelfMusicSelectContract.TITLE}"
+            android:textAppearance="?attr/typographyHeadline5"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/input_title_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="노래 정보를 입력해주세요" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_title_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_m"
+            android:layout_marginTop="@dimen/spacing_m"
+            app:errorContentDescription="@{SelfMusicSelectContract.INPUT_TITLE_ERROR}"
+            app:errorEnabled="@{vm.isTitleErrorEnabled}"
+            app:layout_constraintBottom_toTopOf="@id/input_artist_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:errorContentDescription="타이틀을 입력해주세요">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@{SelfMusicSelectContract.INPUT_TITLE_HINT}"
+                android:inputType="text"
+                android:maxLines="1"
+                android:text="@={vm.title}"
+                tools:hint="타이틀" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_artist_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_m"
+            android:layout_marginTop="@dimen/spacing_m"
+            android:layout_marginBottom="@dimen/spacing_xxl"
+            app:layout_constraintBottom_toTopOf="@id/confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_title_container">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@{SelfMusicSelectContract.INPUT_ARTIST_HINT}"
+                android:inputType="text"
+                android:maxLines="1"
+                android:onEditorAction="@{(_, actionId, __) -> vm.onArtistEditorAction(actionId)}"
+                android:text="@={vm.artist}"
+                tools:hint="아티스트" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.ray.language.presentation.ui.common.view.button.ConfirmButton
+            android:id="@+id/confirm"
+            style="@style/Typography.ConfirmButton.Blue.NoCorner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->vm.onConfirm()}"
+            android:text="@{SelfMusicSelectContract.CONFIRM}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="다음" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

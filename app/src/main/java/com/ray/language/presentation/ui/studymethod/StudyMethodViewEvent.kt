@@ -4,6 +4,6 @@ sealed interface StudyMethodViewEvent {
     object LocalMusic : StudyMethodViewEvent
     object YoutubeMusic : StudyMethodViewEvent
     object PopularMusic : StudyMethodViewEvent
-    object MusicSearch : StudyMethodViewEvent
+    object SelfMusic : StudyMethodViewEvent
     object KanjiSearch : StudyMethodViewEvent
 }

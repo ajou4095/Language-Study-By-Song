@@ -5,9 +5,12 @@ import com.ray.language.common.util.eventObserve
 import com.ray.language.core.presentation.util.registerForActivityResult
 import com.ray.language.databinding.FragmentStudyMethodSelectBinding
 import com.ray.language.presentation.helper.studymethod.select.local.LocalMusicActivityHelper
+import com.ray.language.presentation.helper.studymethod.select.self.SelfMusicSelectBottomSheetHelper
 import com.ray.language.presentation.ui.common.base.BaseFragment
 import com.ray.language.presentation.ui.common.util.showDialog
+import com.ray.language.presentation.ui.studymethod.select.self.SelfMusicSelectBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
+import com.ray.language.core.presentation.util.TAG
 
 @AndroidEntryPoint
 class StudyMethodSelectFragment : BaseFragment<FragmentStudyMethodSelectBinding>(FragmentStudyMethodSelectBinding::inflate) {
@@ -15,13 +18,9 @@ class StudyMethodSelectFragment : BaseFragment<FragmentStudyMethodSelectBinding>
 
     private val localMusicResult = registerForActivityResult(
         LocalMusicActivityHelper::getTitleFromResult,
-        LocalMusicActivityHelper::getArtistFromResult
+        LocalMusicActivityHelper::getArtistFromResult,
     ) { title, artist ->
-        // TODO
-        showDialog(
-            title = "선택한 노래",
-            message = "${title}\n${artist}"
-        )
+        navigateToSearchPage(title, artist)
     }
 
     override fun initView() {
@@ -43,8 +42,13 @@ class StudyMethodSelectFragment : BaseFragment<FragmentStudyMethodSelectBinding>
                 StudyMethodViewEvent.PopularMusic -> {
                     TODO()
                 }
-                StudyMethodViewEvent.MusicSearch -> {
-                    TODO()
+                StudyMethodViewEvent.SelfMusic -> {
+                    // TODO
+                    SelfMusicSelectBottomSheetHelper.newInstance(
+                        onConfirm = { title, artist ->
+                            navigateToSearchPage(title, artist)
+                        }
+                    ).show(parentFragmentManager, "SelfMusicSelectBottomSheet")
                 }
 
                 StudyMethodViewEvent.KanjiSearch -> {
@@ -52,5 +56,16 @@ class StudyMethodSelectFragment : BaseFragment<FragmentStudyMethodSelectBinding>
                 }
             }
         }
+    }
+
+    fun navigateToSearchPage(
+        title: String,
+        artist: String
+    ) {
+        // TODO
+        showDialog(
+            title = "선택한 노래",
+            message = "${title}\n${artist}"
+        )
     }
 }
