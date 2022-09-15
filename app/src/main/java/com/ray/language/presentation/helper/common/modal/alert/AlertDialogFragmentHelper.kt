@@ -2,9 +2,9 @@ package com.ray.language.presentation.helper.common.modal.alert
 
 import android.os.Bundle
 import androidx.lifecycle.SavedStateHandle
-import com.ray.language.common.util.getBooleanOrDefault
-import com.ray.language.common.util.getBundle
-import com.ray.language.common.util.getStringOrDefault
+import com.ray.language.core.common.util.getBooleanOrDefault
+import com.ray.language.core.common.util.getBundle
+import com.ray.language.core.common.util.getStringOrDefault
 import com.ray.language.presentation.ui.common.modal.alert.AlertDialogFragment
 import com.ray.language.presentation.ui.common.modal.alert.AlertDialogFragmentContract
 

@@ -3,7 +3,7 @@ package com.ray.language.presentation.ui.studymethod.select.local
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.commit
-import com.ray.language.common.util.eventObserve
+import com.ray.language.core.common.util.eventObserve
 import com.ray.language.core.presentation.util.slideFragment
 import com.ray.language.databinding.ActivityLocalMusicBinding
 import com.ray.language.presentation.helper.studymethod.select.local.LocalMusicActivityHelper

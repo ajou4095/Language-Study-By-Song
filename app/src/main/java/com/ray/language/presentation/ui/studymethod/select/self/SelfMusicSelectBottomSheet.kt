@@ -1,8 +1,8 @@
 package com.ray.language.presentation.ui.studymethod.select.self
 
 import androidx.fragment.app.viewModels
-import com.ray.language.common.util.eventObserve
-import com.ray.language.common.util.valueOrDefault
+import com.ray.language.core.common.util.eventObserve
+import com.ray.language.core.common.util.valueOrDefault
 import com.ray.language.databinding.BottomsheetSelfMusicSelectBinding
 import com.ray.language.presentation.ui.common.base.BaseBottomSheet
 

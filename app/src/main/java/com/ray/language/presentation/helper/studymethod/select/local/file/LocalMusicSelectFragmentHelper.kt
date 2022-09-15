@@ -2,7 +2,7 @@ package com.ray.language.presentation.helper.studymethod.select.local.file
 
 import android.os.Bundle
 import androidx.lifecycle.SavedStateHandle
-import com.ray.language.common.util.getBundle
+import com.ray.language.core.common.util.getBundle
 import com.ray.language.domain.model.music.MusicInformationDirectory
 import com.ray.language.presentation.ui.studymethod.select.local.file.LocalMusicSelectFragment
 

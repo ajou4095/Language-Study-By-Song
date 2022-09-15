@@ -1,7 +1,7 @@
 package com.ray.language.presentation.ui.common.modal.alert
 
 import androidx.fragment.app.viewModels
-import com.ray.language.common.util.eventObserve
+import com.ray.language.core.common.util.eventObserve
 import com.ray.language.databinding.ViewAlertDialogBinding
 import com.ray.language.presentation.ui.common.base.BaseDialogFragment
 import dagger.hilt.android.AndroidEntryPoint

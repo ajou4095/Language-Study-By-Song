@@ -3,7 +3,7 @@ package com.ray.language.presentation.ui.studymethod.select.local
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.ray.language.common.util.livedata.Event
+import com.ray.language.core.common.util.event.Event
 import com.ray.language.domain.model.music.MusicInformationDirectory
 import com.ray.language.domain.model.music.information.MusicInformation
 import dagger.hilt.android.lifecycle.HiltViewModel

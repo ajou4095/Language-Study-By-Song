@@ -3,7 +3,7 @@ package com.ray.language.presentation.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.ray.language.common.util.livedata.Event
+import com.ray.language.core.common.util.event.Event
 import com.ray.language.presentation.ui.main.view.tab.MainTabContract
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

@@ -6,7 +6,7 @@ import android.view.Gravity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.setPadding
 import com.ray.language.core.R
-import com.ray.language.common.util.delayOnLifecycle
+import com.ray.language.core.common.util.delayOnLifecycle
 import com.ray.language.presentation.ui.common.UiCommonContract
 
 /**
