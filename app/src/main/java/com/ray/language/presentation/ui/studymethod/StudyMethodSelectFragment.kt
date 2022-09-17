@@ -7,10 +7,8 @@ import com.ray.language.databinding.FragmentStudyMethodSelectBinding
 import com.ray.language.presentation.helper.studymethod.select.local.LocalMusicActivityHelper
 import com.ray.language.presentation.helper.studymethod.select.self.SelfMusicSelectBottomSheetHelper
 import com.ray.language.presentation.ui.common.base.BaseFragment
-import com.ray.language.presentation.ui.common.util.showDialog
-import com.ray.language.presentation.ui.studymethod.select.self.SelfMusicSelectBottomSheet
+import com.ray.language.design.common.util.showDialog
 import dagger.hilt.android.AndroidEntryPoint
-import com.ray.language.core.presentation.util.TAG
 
 @AndroidEntryPoint
 class StudyMethodSelectFragment : BaseFragment<FragmentStudyMethodSelectBinding>(FragmentStudyMethodSelectBinding::inflate) {

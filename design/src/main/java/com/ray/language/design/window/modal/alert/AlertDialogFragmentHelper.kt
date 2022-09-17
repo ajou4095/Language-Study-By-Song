@@ -1,14 +1,12 @@
-package com.ray.language.presentation.helper.common.modal.alert
+package com.ray.language.design.window.modal.alert
 
 import android.os.Bundle
 import androidx.lifecycle.SavedStateHandle
 import com.ray.language.core.common.util.getBooleanOrDefault
 import com.ray.language.core.common.util.getBundle
 import com.ray.language.core.common.util.getStringOrDefault
-import com.ray.language.presentation.ui.common.modal.alert.AlertDialogFragment
-import com.ray.language.presentation.ui.common.modal.alert.AlertDialogFragmentContract
 
-object AlertDialogFragmentHelper {
+internal object AlertDialogFragmentHelper {
     private const val BUNDLE = "key_BUNDLE"
     private const val TITLE = "key_TITLE"
     private const val MESSAGE = "key_MESSAGE"

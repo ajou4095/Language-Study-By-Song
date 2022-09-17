@@ -1,13 +1,13 @@
-package com.ray.language.presentation.ui.common.modal.alert
+package com.ray.language.design.window.modal.alert
 
 import androidx.fragment.app.viewModels
 import com.ray.language.core.common.util.eventObserve
-import com.ray.language.databinding.ViewAlertDialogBinding
-import com.ray.language.presentation.ui.common.base.BaseDialogFragment
+import com.ray.language.design.common.base.BaseDialogFragment
+import com.ray.language.design.databinding.ViewAlertDialogBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AlertDialogFragment : BaseDialogFragment<ViewAlertDialogBinding>(ViewAlertDialogBinding::inflate) {
+internal class AlertDialogFragment : BaseDialogFragment<ViewAlertDialogBinding>(ViewAlertDialogBinding::inflate) {
     private val viewModel: AlertDialogViewModel by viewModels()
 
     override fun initView() {

@@ -101,7 +101,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
-        <com.ray.language.presentation.ui.common.view.button.ConfirmButton
+        <com.ray.language.design.view.button.ConfirmButton
             android:id="@+id/confirm"
             style="@style/Typography.ConfirmButton.Blue.NoCorner"
             android:layout_width="match_parent"

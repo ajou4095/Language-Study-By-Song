@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.common.view.item
+package com.ray.language.design.view.item
 
 import android.content.Context
 import android.util.AttributeSet
@@ -9,11 +9,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.content.res.use
 import androidx.core.view.isVisible
-import com.ray.language.R
 import com.ray.language.core.common.util.delayOnLifecycle
 import com.ray.language.core.presentation.util.dp
-import com.ray.language.databinding.ViewSelectItemBinding
-import com.ray.language.presentation.ui.common.UiCommonContract
+import com.ray.language.design.R
+import com.ray.language.design.UiCommonContract
+import com.ray.language.design.databinding.ViewSelectItemBinding
 
 class SelectItem @JvmOverloads constructor(
     context: Context,

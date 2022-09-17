@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.common.view.button
+package com.ray.language.design.view.button
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,7 +7,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.setPadding
 import com.ray.language.core.R
 import com.ray.language.core.common.util.delayOnLifecycle
-import com.ray.language.presentation.ui.common.UiCommonContract
+import com.ray.language.design.UiCommonContract
 
 /**
  * 사용법

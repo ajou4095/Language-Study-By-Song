@@ -1,5 +1,6 @@
 plugins {
     id("com.android.library")
+    id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
 }
@@ -29,6 +30,9 @@ android {
 
 dependencies {
     implementation(project(":core"))
+
+    implementation(Dependency.Hilt.hilt)
+    kapt(Dependency.Hilt.compiler)
 
     implementation(Dependency.Coroutine.core)
     implementation(Dependency.Coroutine.android)

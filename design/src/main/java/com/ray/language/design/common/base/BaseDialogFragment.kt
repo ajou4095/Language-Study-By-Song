@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.common.base
+package com.ray.language.design.common.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
-import com.ray.language.design.R
 import com.ray.language.core.presentation.util.getDisplayWidth
+import com.ray.language.design.R
 
-abstract class BaseDialogFragment<B : ViewDataBinding>(
+internal abstract class BaseDialogFragment<B : ViewDataBinding>(
     private val inflater: (LayoutInflater, ViewGroup?, Boolean) -> B
 ) : DialogFragment() {
     private var _binding: B? = null

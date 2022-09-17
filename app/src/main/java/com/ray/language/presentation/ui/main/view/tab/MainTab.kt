@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.ray.language.core.R
 import com.ray.language.core.presentation.util.dp
 import com.ray.language.databinding.ViewMainTabBinding
-import com.ray.language.presentation.ui.common.view.OnItemClickListener
+import com.ray.language.design.view.OnItemClickListener
 
 class MainTab @JvmOverloads constructor(
     context: Context,

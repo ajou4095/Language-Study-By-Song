@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.ray.language.presentation.ui.common.modal.alert.AlertDialogViewModel" />
+            type="com.ray.language.design.window.modal.alert.AlertDialogViewModel" />
 
     </data>
 
@@ -47,7 +47,7 @@
             app:visibleOrGone="@{vm.message}"
             tools:text="문제가 있습니다. \n 재시도 해주세요." />
 
-        <com.ray.language.presentation.ui.common.view.button.ConfirmButton
+        <com.ray.language.design.view.button.ConfirmButton
             android:id="@+id/cancel"
             style="@style/Typography.ConfirmButton.BlueGray"
             android:layout_width="0dp"
@@ -61,7 +61,7 @@
             app:visibleOrGone="@{vm.isTwoButton}"
             tools:text="닫기" />
 
-        <com.ray.language.presentation.ui.common.view.button.ConfirmButton
+        <com.ray.language.design.view.button.ConfirmButton
             android:id="@+id/confirm"
             style="@style/Typography.ConfirmButton.Blue"
             android:layout_width="0dp"

@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.common.modal.alert
+package com.ray.language.design.window.modal.alert
 
 import android.os.Bundle
 import androidx.lifecycle.LiveData
@@ -6,12 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.ray.language.core.common.util.event.Event
-import com.ray.language.presentation.helper.common.modal.alert.AlertDialogFragmentHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class AlertDialogViewModel @Inject constructor(
+internal class AlertDialogViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     val bundle: Bundle? by lazy {

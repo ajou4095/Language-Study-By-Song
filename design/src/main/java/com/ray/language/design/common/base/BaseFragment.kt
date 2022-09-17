@@ -1,25 +1,19 @@
-package com.ray.language.presentation.ui.common.base
+package com.ray.language.design.common.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.DialogFragment
-import com.ray.language.design.R
-import com.ray.language.core.presentation.util.getDisplayWidth
+import androidx.fragment.app.Fragment
 
-abstract class BaseDialogFragment<B : ViewDataBinding>(
+internal abstract class BaseFragment<B : ViewDataBinding>(
     private val inflater: (LayoutInflater, ViewGroup?, Boolean) -> B
-) : DialogFragment() {
+) : Fragment() {
     private var _binding: B? = null
 
     protected val binding
         get() = _binding!!
-
-    var onCancel: (() -> Unit)? = null
-
-    var onConfirm: (() -> Any)? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,18 +26,8 @@ abstract class BaseDialogFragment<B : ViewDataBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initView()
-        initWidth()
         initObserver()
-    }
-
-    protected open fun initWidth() {
-        val maxWidth = getDisplayWidth()
-        val width = (maxWidth * 0.8).toInt()
-
-        dialog?.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog?.window?.setBackgroundDrawableResource(R.drawable.bg_modal)
     }
 
     protected open fun initView() = Unit

@@ -1,12 +1,12 @@
-package com.ray.language.presentation.ui.common.util
+package com.ray.language.design.common.util
 
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.ray.language.core.presentation.util.TAG
-import com.ray.language.presentation.helper.common.modal.alert.AlertDialogFragmentHelper
-import com.ray.language.presentation.ui.common.base.BaseActivity
-import com.ray.language.presentation.ui.common.base.BaseFragment
-import com.ray.language.presentation.ui.common.modal.alert.AlertDialogFragmentContract
+import com.ray.language.design.window.modal.alert.AlertDialogFragmentContract
+import com.ray.language.design.window.modal.alert.AlertDialogFragmentHelper
 
-fun BaseActivity<*>.showDialog(
+fun AppCompatActivity.showDialog(
     title: String? = null,
     message: String? = null,
     isTwoButton: Boolean = false,
@@ -26,7 +26,7 @@ fun BaseActivity<*>.showDialog(
     ).show(supportFragmentManager, TAG)
 }
 
-fun BaseFragment<*>.showDialog(
+fun Fragment.showDialog(
     title: String? = null,
     message: String? = null,
     isTwoButton: Boolean = false,
