@@ -1,12 +1,13 @@
 package com.ray.language.design.window.modal.alert
 
 import android.os.Bundle
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.SavedStateHandle
 import com.ray.language.core.common.util.getBooleanOrDefault
 import com.ray.language.core.common.util.getBundle
 import com.ray.language.core.common.util.getStringOrDefault
 
-internal object AlertDialogFragmentHelper {
+object AlertDialogFragmentHelper {
     private const val BUNDLE = "key_BUNDLE"
     private const val TITLE = "key_TITLE"
     private const val MESSAGE = "key_MESSAGE"
@@ -22,7 +23,7 @@ internal object AlertDialogFragmentHelper {
         confirmMessage: String? = AlertDialogFragmentContract.STRING_CONFIRM,
         onCancel: (() -> Unit)? = null,
         onConfirm: (() -> Any)? = null
-    ): AlertDialogFragment {
+    ): DialogFragment {
         val args = Bundle().apply {
             putString(TITLE, title)
             putString(MESSAGE, message)

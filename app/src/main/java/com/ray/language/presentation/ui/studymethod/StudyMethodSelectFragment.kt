@@ -4,10 +4,10 @@ import androidx.fragment.app.viewModels
 import com.ray.language.core.common.util.eventObserve
 import com.ray.language.core.presentation.util.registerForActivityResult
 import com.ray.language.databinding.FragmentStudyMethodSelectBinding
+import com.ray.language.design.window.modal.alert.AlertDialogFragmentHelper
 import com.ray.language.presentation.helper.studymethod.select.local.LocalMusicActivityHelper
 import com.ray.language.presentation.helper.studymethod.select.self.SelfMusicSelectBottomSheetHelper
 import com.ray.language.presentation.ui.common.base.BaseFragment
-import com.ray.language.design.common.util.showDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -46,7 +46,7 @@ class StudyMethodSelectFragment : BaseFragment<FragmentStudyMethodSelectBinding>
                         onConfirm = { title, artist ->
                             navigateToSearchPage(title, artist)
                         }
-                    ).show(parentFragmentManager, "SelfMusicSelectBottomSheet")
+                    ).show()
                 }
 
                 StudyMethodViewEvent.KanjiSearch -> {
@@ -61,9 +61,9 @@ class StudyMethodSelectFragment : BaseFragment<FragmentStudyMethodSelectBinding>
         artist: String
     ) {
         // TODO
-        showDialog(
+        AlertDialogFragmentHelper.newInstance(
             title = "선택한 노래",
             message = "${title}\n${artist}"
-        )
+        ).show()
     }
 }

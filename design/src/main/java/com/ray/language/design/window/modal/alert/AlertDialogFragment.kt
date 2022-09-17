@@ -22,13 +22,11 @@ internal class AlertDialogFragment : BaseDialogFragment<ViewAlertDialogBinding>(
             when (event) {
                 AlertDialogViewEvent.OnCancel -> {
                     onCancel?.invoke()
-                    //dismiss()
-                    dismissAllowingStateLoss()
+                    dismiss()
                 }
                 AlertDialogViewEvent.OnConfirm -> {
                     onConfirm?.invoke()
-                    //dismiss()
-                    dismissAllowingStateLoss()
+                    dismiss()
                 }
             }
         }

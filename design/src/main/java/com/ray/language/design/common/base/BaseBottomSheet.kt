@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 internal abstract class BaseBottomSheet<B : ViewDataBinding>(
@@ -41,5 +43,37 @@ internal abstract class BaseBottomSheet<B : ViewDataBinding>(
 
     protected fun bind(action: B.() -> Unit) {
         binding.action()
+    }
+
+    fun DialogFragment.show() {
+        if (this@BaseBottomSheet.activity?.isFinishing == false
+            && this@BaseBottomSheet.activity?.isDestroyed == false
+            && !this@BaseBottomSheet.childFragmentManager.isDestroyed
+        ) {
+            if (this@BaseBottomSheet.childFragmentManager.isStateSaved) {
+                this@BaseBottomSheet.viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                    this@show.show(this@BaseBottomSheet.childFragmentManager, this@show.javaClass.simpleName)
+                }
+            } else {
+                this@show.show(this@BaseBottomSheet.childFragmentManager, this@show.javaClass.simpleName)
+            }
+        }
+    }
+
+    override fun dismiss() {
+        if (activity?.isFinishing == false
+            && activity?.isDestroyed == false
+            && !parentFragmentManager.isDestroyed
+        ) {
+            if (!parentFragmentManager.isDestroyed) {
+                if (parentFragmentManager.isStateSaved) {
+                    viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                        super.dismiss()
+                    }
+                } else {
+                    super.dismiss()
+                }
+            }
+        }
     }
 }

@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 
 internal abstract class BaseFragment<B : ViewDataBinding>(
     private val inflater: (LayoutInflater, ViewGroup?, Boolean) -> B
@@ -41,5 +43,20 @@ internal abstract class BaseFragment<B : ViewDataBinding>(
 
     protected fun bind(action: B.() -> Unit) {
         binding.action()
+    }
+
+    fun DialogFragment.show() {
+        if (this@BaseFragment.activity?.isFinishing == false
+            && this@BaseFragment.activity?.isDestroyed == false
+            && !this@BaseFragment.childFragmentManager.isDestroyed
+        ) {
+            if (this@BaseFragment.childFragmentManager.isStateSaved) {
+                this@BaseFragment.viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                    this@show.show(this@BaseFragment.childFragmentManager, this@show.javaClass.simpleName)
+                }
+            } else {
+                this@show.show(this@BaseFragment.childFragmentManager, this@show.javaClass.simpleName)
+            }
+        }
     }
 }

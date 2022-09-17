@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.lifecycleScope
 import com.ray.language.core.presentation.util.getDisplayWidth
 import com.ray.language.design.R
 
@@ -57,5 +58,37 @@ internal abstract class BaseDialogFragment<B : ViewDataBinding>(
 
     protected fun bind(action: B.() -> Unit) {
         binding.action()
+    }
+
+    fun DialogFragment.show() {
+        if (this@BaseDialogFragment.activity?.isFinishing == false
+            && this@BaseDialogFragment.activity?.isDestroyed == false
+            && !this@BaseDialogFragment.childFragmentManager.isDestroyed
+        ) {
+            if (this@BaseDialogFragment.childFragmentManager.isStateSaved) {
+                this@BaseDialogFragment.viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                    this@show.show(this@BaseDialogFragment.childFragmentManager, this@show.javaClass.simpleName)
+                }
+            } else {
+                this@show.show(this@BaseDialogFragment.childFragmentManager, this@show.javaClass.simpleName)
+            }
+        }
+    }
+
+    override fun dismiss() {
+        if (activity?.isFinishing == false
+            && activity?.isDestroyed == false
+            && !parentFragmentManager.isDestroyed
+        ) {
+            if (!parentFragmentManager.isDestroyed) {
+                if (parentFragmentManager.isStateSaved) {
+                    viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                        super.dismiss()
+                    }
+                } else {
+                    super.dismiss()
+                }
+            }
+        }
     }
 }
