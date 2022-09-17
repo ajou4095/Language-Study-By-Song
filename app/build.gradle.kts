@@ -57,6 +57,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":design"))
 
     implementation(Dependency.Hilt.hilt)
     kapt(Dependency.Hilt.compiler)
