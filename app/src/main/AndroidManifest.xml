@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Typography">
         <activity
-            android:name=".presentation.ui.main.MainActivity"
+            android:name="com.ray.language.presentation.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.ui.studymethod.select.local.LocalMusicActivity"
+            android:name="com.ray.language.presentation.studymethod.select.local.LocalMusicActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

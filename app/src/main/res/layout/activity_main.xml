@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="com.ray.language.presentation.ui.main.MainViewModel" />
+            type="com.ray.language.presentation.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.ray.language.presentation.ui.main.view.tab.MainTab
+        <com.ray.language.presentation.main.view.tab.MainTab
             android:id="@+id/tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

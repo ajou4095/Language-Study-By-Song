@@ -7,9 +7,9 @@
 
         <variable
             name="vm"
-            type="com.ray.language.presentation.ui.studymethod.select.local.file.LocalMusicSelectViewModel" />
+            type="com.ray.language.presentation.studymethod.select.local.file.LocalMusicSelectViewModel" />
 
-        <import type="com.ray.language.presentation.ui.studymethod.select.local.file.LocalMusicSelectContract" />
+        <import type="com.ray.language.presentation.studymethod.select.local.file.LocalMusicSelectContract" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

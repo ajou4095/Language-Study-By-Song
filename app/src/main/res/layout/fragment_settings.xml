@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="com.ray.language.presentation.ui.settings.SettingsViewModel" />
+            type="com.ray.language.presentation.settings.SettingsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
