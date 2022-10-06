@@ -14,13 +14,13 @@ object Dependency {
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.Dependency.retrofit}"
 
         object Adapter {
-            const val sandwich = "com.github.skydoves:sandwich:${Versions.Dependency.sandwich}"
             const val coroutine =
                 "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.Dependency.retrofitCoroutineAdapter}"
         }
 
         object Converter {
-            const val moshi = "com.squareup.retrofit2:converter-moshi:${Versions.Dependency.retrofit}"
+            const val kotlinxSerializer =
+                "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.Dependency.kotlinxSerializationConverter}"
             const val scalars = "com.squareup.retrofit2:converter-scalars:${Versions.Dependency.retrofit}"
         }
     }
@@ -50,6 +50,8 @@ object Dependency {
         }
     }
 
+    const val kotlinxSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Dependency.kotlinxSerialization}"
+
     const val leakCanary = "com.squareup.leakcanary:leakcanary-android:${Versions.Dependency.leakcanary}"
 
     object AndroidX {
@@ -65,6 +67,4 @@ object Dependency {
     const val lottie = "com.airbnb.android:lottie:${Versions.Dependency.lottie}"
 
     const val timber = "com.jakewharton.timber:timber:${Versions.Dependency.timber}"
-
-    const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.Dependency.moshi}"
 }

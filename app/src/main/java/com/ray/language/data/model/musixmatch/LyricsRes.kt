@@ -1,11 +1,40 @@
 package com.ray.language.data.model.musixmatch
 
-import android.os.Parcelable
-import com.squareup.moshi.Json
-import kotlinx.parcelize.Parcelize
+import com.ray.language.data.mapper.DataMapper
+import com.ray.language.domain.model.music.information.LyricsInformation
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@Parcelize
+@Serializable
 data class LyricsRes(
-    @Json(name = "message")
-    val message: LyricsResMessage
-) : Parcelable
+    @SerialName("message")
+    val message: LyricsResMessage = LyricsResMessage()
+) : DataMapper<LyricsInformation> {
+    override fun toDomain(): LyricsInformation {
+        return LyricsInformation(
+            lyricsId = message.body.lyrics.lyricsId,
+            lyricsBody = message.body.lyrics.lyricsBody
+        )
+    }
+}
+
+@Serializable
+data class LyricsResMessage(
+    @SerialName("body")
+    val body: LyricsResBody = LyricsResBody()
+)
+
+@Serializable
+data class LyricsResBody(
+    @SerialName("lyrics")
+    val lyrics: LyricsResLyrics = LyricsResLyrics()
+)
+
+@Serializable
+data class LyricsResLyrics(
+    @SerialName("lyrics_id")
+    val lyricsId: Int = 0,
+
+    @SerialName("lyrics_body")
+    val lyricsBody: String = ""
+)

@@ -6,6 +6,7 @@ plugins {
     id("kotlin-parcelize")
     kotlin("android")
     kotlin("kapt")
+    kotlin("plugin.serialization")
 }
 
 android {
@@ -67,10 +68,11 @@ dependencies {
     kapt(Dependency.Room.compiler)
 
     implementation(Dependency.Retrofit2.retrofit)
-    implementation(Dependency.Retrofit2.Adapter.sandwich)
     implementation(Dependency.Retrofit2.Adapter.coroutine)
-    implementation(Dependency.Retrofit2.Converter.moshi)
+    implementation(Dependency.Retrofit2.Converter.kotlinxSerializer)
     implementation(Dependency.Retrofit2.Converter.scalars)
+
+    implementation(Dependency.kotlinxSerialization)
 
     implementation(Dependency.Lifecycle.viewModel)
     implementation(Dependency.Lifecycle.liveData)
@@ -81,7 +83,6 @@ dependencies {
     implementation(Dependency.Coroutine.core)
     implementation(Dependency.Coroutine.android)
 
-    implementation(Dependency.moshi)
     implementation(Dependency.tedPermission)
     implementation(Dependency.lottie)
     implementation(Dependency.timber)
