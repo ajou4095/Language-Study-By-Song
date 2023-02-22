@@ -1,10 +1,11 @@
-import org.gradle.api.tasks.Delete
-
+@Suppress("DSL_SCOPE_VIOLATION") // Because of IDE bug https://youtrack.jetbrains.com/issue/KTIJ-19370
 plugins {
-    id("com.android.application") version Versions.Plugin.gradleBuildTool apply false //build gradle tool version
-    id("org.jetbrains.kotlin.android") version Versions.Plugin.kotlin apply false
-    id("com.google.dagger.hilt.android") version Versions.Plugin.hilt apply false
-    kotlin("plugin.serialization") version Versions.Plugin.kotlin apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.kapt) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.hilt) apply false
 }
 
 task("clean", Delete::class) {

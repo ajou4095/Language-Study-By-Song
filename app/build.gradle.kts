@@ -3,25 +3,23 @@ import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 plugins {
     id("com.android.application")
     id("dagger.hilt.android.plugin")
-    id("kotlin-parcelize")
+    kotlin("plugin.parcelize")
     kotlin("android")
     kotlin("kapt")
-    kotlin("plugin.serialization")
 }
 
 android {
-    compileSdk = Versions.Sdk.compile
+    namespace = "com.ray.language"
+    compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
         applicationId = "com.ray.language"
-        minSdk = Versions.Sdk.min
-        targetSdk = Versions.Sdk.target
-        versionCode = Versions.App.code
-        versionName = Versions.App.name
+        minSdk = libs.versions.sdk.min.get().toInt()
+        targetSdk = libs.versions.sdk.target.get().toInt()
+        versionCode = libs.versions.app.versioncode.get().toInt()
+        versionName = libs.versions.app.versionname.get()
 
         buildConfigField("String", "MUSIX_MATCH_API_KEY", getLocalProperty("musixmatch_api_key"))
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -52,7 +50,6 @@ android {
     }
     buildFeatures {
         dataBinding = true
-        viewBinding = true
     }
 }
 
@@ -60,45 +57,21 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":design"))
 
-    implementation(Dependency.Hilt.hilt)
-    kapt(Dependency.Hilt.compiler)
+    implementation(libs.bundles.kotlin)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
-    implementation(Dependency.Room.runtime)
-    implementation(Dependency.Room.coroutine)
-    kapt(Dependency.Room.compiler)
+    implementation(libs.bundles.androidx.data)
+    implementation(libs.bundles.network)
 
-    implementation(Dependency.Retrofit2.retrofit)
-    implementation(Dependency.Retrofit2.Adapter.coroutine)
-    implementation(Dependency.Retrofit2.Converter.kotlinxSerializer)
-    implementation(Dependency.Retrofit2.Converter.scalars)
+    implementation(libs.timber)
+    implementation(libs.leakcanary)
+    debugImplementation(libs.bundles.flipper)
 
-    implementation(Dependency.kotlinxSerialization)
-
-    implementation(Dependency.Lifecycle.viewModel)
-    implementation(Dependency.Lifecycle.liveData)
-
-    implementation(Dependency.Glide.glide)
-    kapt(Dependency.Glide.compiler)
-
-    implementation(Dependency.Coroutine.core)
-    implementation(Dependency.Coroutine.android)
-
-    implementation(Dependency.tedPermission)
-    implementation(Dependency.lottie)
-    implementation(Dependency.timber)
-
-    debugImplementation(Dependency.Flipper.flipper)
-    debugImplementation(Dependency.Flipper.soLoader)
-    debugImplementation(Dependency.Flipper.Plugin.network)
-    debugImplementation(Dependency.Flipper.Plugin.leakCanary)
-
-    implementation(Dependency.leakCanary)
-
-    implementation(Dependency.AndroidX.core)
-    implementation(Dependency.AndroidX.appcompat)
-    implementation(Dependency.AndroidX.constraintLayout)
-    implementation(Dependency.AndroidX.fragment)
-    implementation(Dependency.AndroidX.material)
+    implementation(libs.bundles.androidx.presentation)
+    implementation(libs.google.material)
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
 }
 
 fun getLocalProperty(propertyKey: String): String {

@@ -1,20 +1,34 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.library")
     id("dagger.hilt.android.plugin")
+    kotlin("plugin.parcelize")
     kotlin("android")
     kotlin("kapt")
 }
 
 android {
-    compileSdk = Versions.Sdk.compile
+    namespace = "com.ray.language.design"
+    compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
-        minSdk = Versions.Sdk.min
-        targetSdk = Versions.Sdk.target
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdk = libs.versions.sdk.min.get().toInt()
+        targetSdk = libs.versions.sdk.target.get().toInt()
     }
 
+    buildTypes {
+        debug {
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+        release {
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+    /**
+     * Gradle 7.0.0 이상에서는 JDK 11 을 기본으로 사용한다.
+     * url : https://cliearl.github.io/posts/android/android-gradle-java-11/
+     */
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -22,32 +36,36 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
+    sourceSets.getByName("main") {
+        res.srcDirs("src/main/res", "src/main/design-system")
+    }
     buildFeatures {
         dataBinding = true
-        viewBinding = true
     }
 }
 
 dependencies {
     implementation(project(":core"))
 
-    implementation(Dependency.Hilt.hilt)
-    kapt(Dependency.Hilt.compiler)
+    implementation(libs.bundles.kotlin)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
-    implementation(Dependency.Coroutine.core)
-    implementation(Dependency.Coroutine.android)
+    implementation(libs.bundles.androidx.presentation)
+    implementation(libs.google.material)
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
+    implementation(libs.lottie)
+    implementation(libs.shimmer)
+    implementation(libs.rds)
 
-    implementation(Dependency.Lifecycle.viewModel)
-    implementation(Dependency.Lifecycle.liveData)
+    implementation(libs.ted.permission)
 
-    implementation(Dependency.Glide.glide)
-    kapt(Dependency.Glide.compiler)
+    implementation(libs.timber)
+    implementation(libs.leakcanary)
+    debugImplementation(libs.bundles.flipper)
+}
 
-    implementation(Dependency.timber)
-
-    implementation(Dependency.AndroidX.core)
-    implementation(Dependency.AndroidX.appcompat)
-    implementation(Dependency.AndroidX.constraintLayout)
-    implementation(Dependency.AndroidX.fragment)
-    implementation(Dependency.AndroidX.material)
+fun getLocalProperty(propertyKey: String): String {
+    return gradleLocalProperties(rootDir).getProperty(propertyKey)
 }
