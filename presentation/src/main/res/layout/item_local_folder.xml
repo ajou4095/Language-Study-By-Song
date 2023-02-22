@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="?android:attr/selectableItemBackground">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="@dimen/spacing_s"
+            android:background="@drawable/bg_music_thumbnail"
+            android:padding="@dimen/divider_stroke_m"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_s"
+            android:maxLines="3"
+            android:textAppearance="?attr/typographyBody1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/description"
+            app:layout_constraintStart_toEndOf="@id/thumbnail"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="(C81) (同人音楽) (東方) [Foreground Eclipse] Each And Every Word Leaves Me Here Alone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_s"
+            android:textAppearance="?attr/typographyBody2"
+            android:textColor="@color/blue_gray_200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="총 10곡" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

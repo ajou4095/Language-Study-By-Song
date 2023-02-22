@@ -39,7 +39,7 @@ class LanguageDebugApplication : LanguageApplication() {
                 addPlugin(
                     SharedPreferencesFlipperPlugin(
                         this@LanguageDebugApplication,
-                        SharedPreferencesManager.SHARED_PREFERENCE_FILE_NAME,
+                        com.ray.language.data.local.SharedPreferencesManager.SHARED_PREFERENCE_FILE_NAME,
                         Context.MODE_PRIVATE
                     )
                 )

@@ -19,5 +19,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "language"
 include(":app")
-include(":core")
-include(":design")
+include(":common")
+include(":presentation")
+include(":domain")
+include(":data")

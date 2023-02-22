@@ -17,7 +17,7 @@ object AppModule {
     @Singleton
     fun provideSharedPreferencesManager(
         @ApplicationContext context: Context
-    ): SharedPreferencesManager {
-        return SharedPreferencesManager(context)
+    ): com.ray.language.data.local.SharedPreferencesManager {
+        return com.ray.language.data.local.SharedPreferencesManager(context)
     }
 }
