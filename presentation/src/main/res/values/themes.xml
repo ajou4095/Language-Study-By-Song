@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Language" parent="Typography">
+        <item name="colorPrimary">@color/blue_400</item>
+        <item name="colorPrimaryVariant">@color/blue_700</item>
+        <item name="colorOnPrimary">@color/blue_gray_100</item>
+        <item name="colorSecondary">@color/cyan_400</item>
+        <item name="colorSecondaryVariant">@color/cyan_700</item>
+        <item name="colorOnSecondary">@color/blue_gray_900</item>
+
+        <item name="confirmButtonStyle">@style/Language.ConfirmButton</item>
+    </style>
+</resources>
