@@ -1,6 +1,6 @@
 package com.ray.language.data.di
 
-import com.ray.language.data.api.MusixMatchApi
+import com.ray.language.data.remote.network.api.MusixMatchApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

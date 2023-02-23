@@ -13,7 +13,7 @@ import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin
 import com.facebook.soloader.SoLoader
-import com.ray.language.data.local.SharedPreferencesManager
+import com.ray.language.data.remote.local.SharedPreferencesManager
 import leakcanary.LeakCanary
 import timber.log.Timber
 
@@ -39,7 +39,7 @@ class LanguageDebugApplication : LanguageApplication() {
                 addPlugin(
                     SharedPreferencesFlipperPlugin(
                         this@LanguageDebugApplication,
-                        com.ray.language.data.local.SharedPreferencesManager.SHARED_PREFERENCE_FILE_NAME,
+                        SharedPreferencesManager.SHARED_PREFERENCE_FILE_NAME,
                         Context.MODE_PRIVATE
                     )
                 )

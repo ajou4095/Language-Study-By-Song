@@ -1,4 +1,4 @@
-package com.ray.language.data.local
+package com.ray.language.data.remote.local
 
 import android.content.Context
 import androidx.core.content.edit

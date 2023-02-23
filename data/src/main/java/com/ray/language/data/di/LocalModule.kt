@@ -1,7 +1,7 @@
 package com.ray.language.data.di
 
 import android.content.Context
-import com.ray.language.data.local.SharedPreferencesManager
+import com.ray.language.data.remote.local.SharedPreferencesManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,7 +1,7 @@
 package com.ray.language.data.di
 
 import android.content.Context
-import com.ray.language.data.api.MusixMatchApi
+import com.ray.language.data.remote.network.api.MusixMatchApi
 import com.ray.language.data.repository.LocalMusicRepositoryImpl
 import com.ray.language.data.repository.MusixMatchRepositoryImpl
 import com.ray.language.domain.repository.LocalMusicRepository

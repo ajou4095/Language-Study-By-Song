@@ -1,4 +1,4 @@
-package com.ray.language.data.musixmatch
+package com.ray.language.data.remote.network.model
 
 import com.ray.language.data.mapper.DataMapper
 import com.ray.language.domain.music.information.LyricsInformation
