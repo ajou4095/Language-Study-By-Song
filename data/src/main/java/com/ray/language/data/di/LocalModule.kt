@@ -1,4 +1,4 @@
-package com.ray.language.di
+package com.ray.language.data.di
 
 import android.content.Context
 import com.ray.language.data.local.SharedPreferencesManager
@@ -11,13 +11,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
-
+object LocalModule {
     @Provides
     @Singleton
     fun provideSharedPreferencesManager(
         @ApplicationContext context: Context
-    ): com.ray.language.data.local.SharedPreferencesManager {
-        return com.ray.language.data.local.SharedPreferencesManager(context)
+    ): SharedPreferencesManager {
+        return SharedPreferencesManager(context)
     }
 }
