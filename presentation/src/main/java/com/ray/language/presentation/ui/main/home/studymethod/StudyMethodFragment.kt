@@ -1,26 +1,19 @@
 package com.ray.language.presentation.ui.main.home.studymethod
 
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.ray.language.common.eventObserve
-import com.ray.language.domain.usecase.musixmatch.search.GetLyricsByMatcherUseCase
+import com.ray.language.presentation.R
 import com.ray.language.presentation.common.base.BaseFragment
 import com.ray.language.presentation.common.util.registerForActivityResult
 import com.ray.language.presentation.databinding.FragmentStudyMethodBinding
 import com.ray.language.presentation.ui.main.home.studymethod.select.local.LocalMusicActivityHelper
 import com.ray.language.presentation.ui.main.home.studymethod.select.self.SelfMusicSelectBottomSheetHelper
-import com.ray.rds.window.alert.AlertDialogFragmentProvider
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class StudyMethodFragment : BaseFragment<FragmentStudyMethodBinding>(FragmentStudyMethodBinding::inflate) {
     private val viewModel: StudyMethodViewModel by viewModels()
-
-    @Inject
-    lateinit var usecase: GetLyricsByMatcherUseCase
 
     private val localMusicResult = registerForActivityResult(
         LocalMusicActivityHelper::getTitleFromResult,
@@ -69,19 +62,6 @@ class StudyMethodFragment : BaseFragment<FragmentStudyMethodBinding>(FragmentStu
         artist: String
     ) {
         // TODO
-
-        lifecycleScope.launch {
-            usecase.invoke(title, artist).catch { exception ->
-                AlertDialogFragmentProvider.makeAlertDialog(
-                    title = "에러 발생",
-                    message = exception.message
-                ).show()
-            }.collect { lyricsInformation ->
-                AlertDialogFragmentProvider.makeAlertDialog(
-                    title = title,
-                    message = lyricsInformation.lyricsBody
-                ).show()
-            }
-        }
+        findNavController().navigate(R.id.action_home_to_music)
     }
 }

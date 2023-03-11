@@ -32,7 +32,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
                 SplashState.Init.Success -> {
                     hideLoading()
 
-                    findNavController().navigate(R.id.action_to_home)
+                    findNavController().navigate(R.id.action_splash_to_home)
                 }
                 SplashState.Init.Fail -> {
                     hideLoading()

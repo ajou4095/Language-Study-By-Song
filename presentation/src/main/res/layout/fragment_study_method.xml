@@ -60,7 +60,7 @@
                 app:layout_constraintTop_toTopOf="@id/icon_music"
                 tools:text="노래 고르기" />
 
-            <com.ray.language.presentation.common.design.view.item.SelectItem
+            <com.ray.language.presentation.common.design.view.group.list.item.SelectItem
                 android:id="@+id/music_local"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                 app:onIntervalClick="@{() -> vm.selectMusicFromLocal()}"
                 tools:text="휴대폰에서 노래 선택하기" />
 
-            <com.ray.language.presentation.common.design.view.item.SelectItem
+            <com.ray.language.presentation.common.design.view.group.list.item.SelectItem
                 android:id="@+id/music_youtube"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                 app:onIntervalClick="@{() -> vm.selectMusicFromYoutube()}"
                 tools:text="유튜브 노래 선택하기" />
 
-            <com.ray.language.presentation.common.design.view.item.SelectItem
+            <com.ray.language.presentation.common.design.view.group.list.item.SelectItem
                 android:id="@+id/music_popular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                 app:onIntervalClick="@{() -> vm.selectMusicFromPopularList()}"
                 tools:text="유명한 노래 선택하기" />
 
-            <com.ray.language.presentation.common.design.view.item.SelectItem
+            <com.ray.language.presentation.common.design.view.group.list.item.SelectItem
                 android:id="@+id/music_self"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                 app:layout_constraintTop_toTopOf="@id/icon_kanji"
                 tools:text="어휘 고르기" />
 
-            <com.ray.language.presentation.common.design.view.item.SelectItem
+            <com.ray.language.presentation.common.design.view.group.list.item.SelectItem
                 android:id="@+id/kanji_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
