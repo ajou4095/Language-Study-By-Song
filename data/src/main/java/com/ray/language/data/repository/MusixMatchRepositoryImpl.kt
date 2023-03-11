@@ -7,6 +7,7 @@ import com.ray.language.domain.music.information.LyricsInformation
 import com.ray.language.domain.repository.MusixMatchRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 class MusixMatchRepositoryImpl(
@@ -18,8 +19,9 @@ class MusixMatchRepositoryImpl(
         title: String,
         artist: String
     ): Flow<LyricsInformation> {
-        return musixMatchApi
-            .getLyricsByMatcher(apiKey, title, artist)
+        return flow {
+            emit(musixMatchApi.getLyricsByMatcher(apiKey, title, artist))
+        }
             .convertResponseToDomain()
             .flowOn(Dispatchers.IO)
     }
