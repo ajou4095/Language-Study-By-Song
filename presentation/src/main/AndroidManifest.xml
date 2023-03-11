@@ -12,7 +12,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.studymethod.select.local.LocalMusicActivity"
+            android:name=".ui.main.home.studymethod.select.local.LocalMusicActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
