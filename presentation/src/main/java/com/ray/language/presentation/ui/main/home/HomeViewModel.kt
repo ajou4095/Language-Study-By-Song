@@ -21,6 +21,10 @@ class HomeViewModel @Inject constructor(
     val event: LiveData<Event<HomeViewEvent>>
         get() = _event
 
+    private val _tabPosition = MutableLiveData<Int>(0)
+    val tabPosition: LiveData<Int>
+        get() = _tabPosition
+
     init {
         _state.value = Event(HomeState.Init.Request)
     }
@@ -29,7 +33,7 @@ class HomeViewModel @Inject constructor(
 
     }
 
-    fun onConfirm() {
-
+    fun onTabClick(position: Int) {
+        _tabPosition.value = position
     }
 }

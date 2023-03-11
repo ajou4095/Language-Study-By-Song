@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="com.ray.language.presentation.ui.studymethod.select.local.LocalMusicViewModel" />
+            type="com.ray.language.presentation.ui.main.home.studymethod.select.local.LocalMusicViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
