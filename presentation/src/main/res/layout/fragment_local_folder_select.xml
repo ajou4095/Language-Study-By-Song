@@ -7,9 +7,9 @@
 
         <variable
             name="vm"
-            type="com.ray.language.presentation.ui.studymethod.select.local.folder.LocalFolderSelectViewModel" />
+            type="com.ray.language.presentation.ui.main.home.studymethod.select.local.folder.LocalFolderSelectViewModel" />
 
-        <import type="com.ray.language.presentation.ui.studymethod.select.local.folder.LocalFolderSelectContract" />
+        <import type="com.ray.language.presentation.ui.main.home.studymethod.select.local.folder.LocalFolderSelectContract" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
