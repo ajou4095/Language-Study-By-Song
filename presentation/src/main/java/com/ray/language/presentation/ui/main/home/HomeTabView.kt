@@ -1,4 +1,4 @@
-package com.ray.language.presentation.ui.main.view.tab
+package com.ray.language.presentation.ui.main.home
 
 import android.animation.ValueAnimator
 import android.content.Context
@@ -11,7 +11,7 @@ import com.ray.language.presentation.common.design.OnItemClickListener
 import com.ray.language.presentation.databinding.ViewMainTabBinding
 import com.ray.rds.util.dp
 
-class MainTab @JvmOverloads constructor(
+class HomeTabView @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
     defStyle: Int = 0
@@ -21,8 +21,8 @@ class MainTab @JvmOverloads constructor(
     var onItemClick: OnItemClickListener? = null
         set(value) {
             field = value
-            value?.onClick(MainTabContract.TAB_STUDY)
-            animateAllIcons(MainTabContract.TAB_STUDY)
+            value?.onClick(HomeContract.TAB_STUDY)
+            animateAllIcons(HomeContract.TAB_STUDY)
         }
 
     init {
@@ -30,20 +30,20 @@ class MainTab @JvmOverloads constructor(
         maxHeight = 52.dp.toInt()
 
         with(binding) {
-            study.imageAlpha = MainTabContract.DESELECTED_ALPHA
+            study.imageAlpha = HomeContract.DESELECTED_ALPHA
             backgroundStudy.setOnClickListener {
-                onItemClick?.onClick(MainTabContract.TAB_STUDY)
-                animateAllIcons(MainTabContract.TAB_STUDY)
+                onItemClick?.onClick(HomeContract.TAB_STUDY)
+                animateAllIcons(HomeContract.TAB_STUDY)
             }
-            exam.imageAlpha = MainTabContract.DESELECTED_ALPHA
+            exam.imageAlpha = HomeContract.DESELECTED_ALPHA
             backgroundExam.setOnClickListener {
-                onItemClick?.onClick(MainTabContract.TAB_EXAM)
-                animateAllIcons(MainTabContract.TAB_EXAM)
+                onItemClick?.onClick(HomeContract.TAB_EXAM)
+                animateAllIcons(HomeContract.TAB_EXAM)
             }
-            settings.imageAlpha = MainTabContract.DESELECTED_ALPHA
+            settings.imageAlpha = HomeContract.DESELECTED_ALPHA
             backgroundSettings.setOnClickListener {
-                onItemClick?.onClick(MainTabContract.TAB_SETTINGS)
-                animateAllIcons(MainTabContract.TAB_SETTINGS)
+                onItemClick?.onClick(HomeContract.TAB_SETTINGS)
+                animateAllIcons(HomeContract.TAB_SETTINGS)
             }
         }
     }
@@ -51,17 +51,17 @@ class MainTab @JvmOverloads constructor(
     private fun animateAllIcons(position: Int) {
         with(binding) {
             when (position) {
-                MainTabContract.TAB_STUDY -> {
+                HomeContract.TAB_STUDY -> {
                     study.animateIcon(true)
                     exam.animateIcon(false)
                     settings.animateIcon(false)
                 }
-                MainTabContract.TAB_EXAM -> {
+                HomeContract.TAB_EXAM -> {
                     study.animateIcon(false)
                     exam.animateIcon(true)
                     settings.animateIcon(false)
                 }
-                MainTabContract.TAB_SETTINGS -> {
+                HomeContract.TAB_SETTINGS -> {
                     study.animateIcon(false)
                     exam.animateIcon(false)
                     settings.animateIcon(true)
@@ -72,9 +72,9 @@ class MainTab @JvmOverloads constructor(
 
     private fun ImageView.animateIcon(select: Boolean) {
         if (select) {
-            ValueAnimator.ofInt(imageAlpha, MainTabContract.SELECTED_ALPHA)
+            ValueAnimator.ofInt(imageAlpha, HomeContract.SELECTED_ALPHA)
         } else {
-            ValueAnimator.ofInt(imageAlpha, MainTabContract.DESELECTED_ALPHA)
+            ValueAnimator.ofInt(imageAlpha, HomeContract.DESELECTED_ALPHA)
         }.run {
             addUpdateListener { animation ->
                 this@animateIcon.imageAlpha = animation.animatedValue as Int

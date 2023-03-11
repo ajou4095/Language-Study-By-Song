@@ -1,6 +1,6 @@
-package com.ray.language.presentation.ui.main.view.tab
+package com.ray.language.presentation.ui.main.home
 
-object MainTabContract {
+object HomeContract {
     const val TAB_STUDY = 0
     const val TAB_EXAM = 1
     const val TAB_SETTINGS = 2
