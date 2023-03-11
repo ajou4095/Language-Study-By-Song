@@ -1,6 +1,6 @@
 package com.ray.language.presentation.ui.main.home.studymethod
 
-object StudyMethodSelectContract {
+object StudyMethodContract {
     const val TITLE = "어떤 방법으로\n공부를 진행할까요?"
 
     const val SUBTITLE_MUSIC = "노래 고르기"

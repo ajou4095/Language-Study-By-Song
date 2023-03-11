@@ -7,9 +7,9 @@
 
         <variable
             name="vm"
-            type="com.ray.language.presentation.ui.main.home.studymethod.StudyMethodSelectViewModel" />
+            type="com.ray.language.presentation.ui.main.home.studymethod.StudyMethodViewModel" />
 
-        <import type="com.ray.language.presentation.ui.main.home.studymethod.StudyMethodSelectContract" />
+        <import type="com.ray.language.presentation.ui.main.home.studymethod.StudyMethodContract" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_s"
             android:layout_marginTop="@dimen/spacing_m"
-            android:text="@{StudyMethodSelectContract.TITLE}"
+            android:text="@{StudyMethodContract.TITLE}"
             android:textAppearance="?attr/typographyHeadline5"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +60,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_xs"
-                    android:text="@{StudyMethodSelectContract.SUBTITLE_MUSIC}"
+                    android:text="@{StudyMethodContract.SUBTITLE_MUSIC}"
                     android:textAppearance="?attr/typographyHeadline6"
                     app:layout_constraintBottom_toBottomOf="@id/icon_music"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +73,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_xs"
-                    android:text="@{StudyMethodSelectContract.MUSIC_LOCAL}"
+                    android:text="@{StudyMethodContract.MUSIC_LOCAL}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/subtitle_music"
@@ -84,7 +84,7 @@
                     android:id="@+id/music_youtube"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{StudyMethodSelectContract.MUSIC_YOUTUBE}"
+                    android:text="@{StudyMethodContract.MUSIC_YOUTUBE}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/music_local"
@@ -95,7 +95,7 @@
                     android:id="@+id/music_popular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{StudyMethodSelectContract.MUSIC_POPULAR}"
+                    android:text="@{StudyMethodContract.MUSIC_POPULAR}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/music_youtube"
@@ -106,7 +106,7 @@
                     android:id="@+id/music_self"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{StudyMethodSelectContract.MUSIC_SEARCH}"
+                    android:text="@{StudyMethodContract.MUSIC_SEARCH}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/music_popular"
@@ -139,7 +139,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_xs"
-                    android:text="@{StudyMethodSelectContract.SUBTITLE_KANJI}"
+                    android:text="@{StudyMethodContract.SUBTITLE_KANJI}"
                     android:textAppearance="?attr/typographyHeadline6"
                     app:layout_constraintBottom_toBottomOf="@id/icon_kanji"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -152,7 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_xs"
-                    android:text="@{StudyMethodSelectContract.KANJI_SEARCH}"
+                    android:text="@{StudyMethodContract.KANJI_SEARCH}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/subtitle_kanji"

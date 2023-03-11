@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="com.ray.language.presentation.ui.main.home.exam.LanguageExamSelectViewModel" />
+            type="com.ray.language.presentation.ui.main.home.exam.ExamViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

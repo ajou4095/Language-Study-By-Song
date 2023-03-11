@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class StudyMethodSelectViewModel @Inject constructor() : ViewModel() {
+class StudyMethodViewModel @Inject constructor() : ViewModel() {
 
     private val _event = MutableLiveData<Event<StudyMethodViewEvent>>()
     val event: LiveData<Event<StudyMethodViewEvent>>

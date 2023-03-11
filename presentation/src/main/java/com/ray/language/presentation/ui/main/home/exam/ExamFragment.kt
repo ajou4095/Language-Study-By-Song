@@ -1,18 +1,16 @@
-package com.ray.language.presentation.ui.main.splash
+package com.ray.language.presentation.ui.main.home.exam
 
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.ray.language.common.eventObserve
-import com.ray.language.presentation.R
+import com.ray.language.presentation.databinding.FragmentExamBinding
 import com.ray.language.presentation.common.base.BaseFragment
 import com.ray.language.presentation.common.error.ErrorDialogContent
-import com.ray.language.presentation.databinding.FragmentSplashBinding
 import com.ray.rds.window.alert.AlertDialogFragmentProvider
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding::inflate) {
-    private val viewModel: SplashViewModel by viewModels()
+class ExamFragment : BaseFragment<FragmentExamBinding>(FragmentExamBinding::inflate) {
+    private val viewModel: ExamViewModel by viewModels()
 
     override fun initView() {
         bind {
@@ -22,36 +20,40 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
     }
 
     override fun initObserver() {
-        fun initialize(state: SplashState.Init) {
+        fun initialize(state: ExamState.Init) {
             when (state) {
-                SplashState.Init.Request -> {
+                ExamState.Init.Request -> {
                     viewModel.initialize()
                 }
-                SplashState.Init.Success -> {
-                    hideLoading()
-
-                    findNavController().navigate(R.id.action_to_home)
+                ExamState.Init.Loading -> {
+                    showLoading()
                 }
-                SplashState.Init.Fail -> {
+                ExamState.Init.Success -> {
+                    hideLoading()
+                }
+                ExamState.Init.Fail -> {
                     hideLoading()
 
                     AlertDialogFragmentProvider.makeAlertDialog(
                         title = ErrorDialogContent.UnknownError.title,
-                        message = ErrorDialogContent.UnknownError.message,
-                        onConfirm = {
-                            activity?.finish()
-                        },
-                    ).apply {
-                        isCancelable = false
-                    }.show()
+                        message = ErrorDialogContent.UnknownError.message
+                    ).show()
                 }
             }
         }
 
         viewModel.state.eventObserve(viewLifecycleOwner) { state ->
             when (state) {
-                is SplashState.Init -> {
+                is ExamState.Init -> {
                     initialize(state)
+                }
+            }
+        }
+
+        viewModel.event.eventObserve(viewLifecycleOwner) { event ->
+            when (event) {
+                is ExamViewEvent.Confirm -> {
+
                 }
             }
         }

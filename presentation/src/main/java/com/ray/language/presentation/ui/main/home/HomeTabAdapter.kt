@@ -2,17 +2,17 @@ package com.ray.language.presentation.ui.main.home
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.ray.language.presentation.ui.main.home.exam.LanguageExamSelectFragmentHelper
+import com.ray.language.presentation.ui.main.home.exam.ExamFragmentHelper
 import com.ray.language.presentation.ui.main.home.settings.SettingsFragmentHelper
-import com.ray.language.presentation.ui.main.home.studymethod.StudyMethodSelectFragmentHelper
+import com.ray.language.presentation.ui.main.home.studymethod.StudyMethodFragmentHelper
 
 class HomeTabAdapter(
     fragment: Fragment
 ) : FragmentStateAdapter(fragment) {
 
     private val tabs: List<Fragment> = listOf(
-        StudyMethodSelectFragmentHelper.newInstance(),
-        LanguageExamSelectFragmentHelper.newInstance(),
+        StudyMethodFragmentHelper.newInstance(),
+        ExamFragmentHelper.newInstance(),
         SettingsFragmentHelper.newInstance(),
     )
 

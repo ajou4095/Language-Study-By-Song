@@ -6,7 +6,7 @@ import com.ray.language.common.eventObserve
 import com.ray.language.domain.usecase.musixmatch.search.GetLyricsByMatcherUseCase
 import com.ray.language.presentation.common.base.BaseFragment
 import com.ray.language.presentation.common.util.registerForActivityResult
-import com.ray.language.presentation.databinding.FragmentStudyMethodSelectBinding
+import com.ray.language.presentation.databinding.FragmentStudyMethodBinding
 import com.ray.language.presentation.ui.main.home.studymethod.select.local.LocalMusicActivityHelper
 import com.ray.language.presentation.ui.main.home.studymethod.select.self.SelfMusicSelectBottomSheetHelper
 import com.ray.rds.window.alert.AlertDialogFragmentProvider
@@ -16,8 +16,8 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class StudyMethodSelectFragment : BaseFragment<FragmentStudyMethodSelectBinding>(FragmentStudyMethodSelectBinding::inflate) {
-    private val viewModel: StudyMethodSelectViewModel by viewModels()
+class StudyMethodFragment : BaseFragment<FragmentStudyMethodBinding>(FragmentStudyMethodBinding::inflate) {
+    private val viewModel: StudyMethodViewModel by viewModels()
 
     @Inject
     lateinit var usecase: GetLyricsByMatcherUseCase
