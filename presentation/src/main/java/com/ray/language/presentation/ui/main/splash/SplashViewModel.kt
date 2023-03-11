@@ -19,6 +19,10 @@ class SplashViewModel @Inject constructor() : ViewModel() {
     val state: LiveData<Event<SplashState>>
         get() = _state
 
+    private val _event = MutableLiveData<Event<SplashViewEvent>>()
+    val event: LiveData<Event<SplashViewEvent>>
+        get() = _event
+
     init {
         _state.value = Event(SplashState.Init.Request)
     }
@@ -26,9 +30,13 @@ class SplashViewModel @Inject constructor() : ViewModel() {
     fun initialize() {
         viewModelScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO) {
-                delay(1000L)
+                delay(2500L)
             }
             _state.value = Event(SplashState.Init.Success)
         }
+    }
+
+    fun onAnimationEnd() {
+        _event.value = Event(SplashViewEvent.AnimationEnd)
     }
 }

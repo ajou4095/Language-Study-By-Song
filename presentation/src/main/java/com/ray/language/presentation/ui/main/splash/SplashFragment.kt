@@ -1,5 +1,6 @@
 package com.ray.language.presentation.ui.main.splash
 
+import android.view.animation.DecelerateInterpolator
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.ray.language.common.eventObserve
@@ -7,6 +8,7 @@ import com.ray.language.presentation.R
 import com.ray.language.presentation.common.base.BaseFragment
 import com.ray.language.presentation.common.error.ErrorDialogContent
 import com.ray.language.presentation.databinding.FragmentSplashBinding
+import com.ray.rds.util.getLong
 import com.ray.rds.window.alert.AlertDialogFragmentProvider
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -52,6 +54,19 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
             when (state) {
                 is SplashState.Init -> {
                     initialize(state)
+                }
+            }
+        }
+
+        viewModel.event.eventObserve(viewLifecycleOwner) { event ->
+            when (event) {
+                SplashViewEvent.AnimationEnd -> {
+                    binding.title
+                        .animate()
+                        .setDuration(resources.getLong(com.ray.rds.R.integer.animation_duration))
+                        .setInterpolator(DecelerateInterpolator())
+                        .alpha(1f)
+                        .start()
                 }
             }
         }

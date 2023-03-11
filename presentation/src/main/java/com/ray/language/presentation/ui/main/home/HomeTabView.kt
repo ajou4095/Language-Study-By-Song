@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.ray.language.presentation.common.design.OnItemClickListener
+import com.ray.language.presentation.common.design.listener.OnItemClickListener
 import com.ray.language.presentation.databinding.ViewMainTabBinding
 import com.ray.rds.util.dp
 
